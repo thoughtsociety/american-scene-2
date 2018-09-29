@@ -7,6 +7,8 @@ on [Jose Portilla's Dash course in Udemy](https://www.udemy.com/interactive-pyth
 
 ## Multi-App-Container 
 
+09/29/18 - Re-forked Ctindel's mods and deleted the current repo
+
 This is essentially a fork of the Stock Ticker with two apps now. Second one is Eric's simple graph.
 
 Added second container for the app1 called "dash1" in the docker-compose.yml.
