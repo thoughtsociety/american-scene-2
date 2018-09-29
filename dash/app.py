@@ -76,7 +76,7 @@ for year in year_index_strings:
 app.layout=html.Div([   # top,rt,bot,lft
 
     html.H2('Market Trends Over a Dozen Years',style={'width':'99.999%','color':'black',
-        'text-align':'center','background-color':bg_color ,
+        'text-align':'center','background-color':text_color ,
             'margin-bottom': '0px','padding':'10px 0px 0px 0px'}
                                                          # 'padding':'10px 0px 100px 0px'})
             ),
