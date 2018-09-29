@@ -116,7 +116,7 @@ app.layout=html.Div([   # top,rt,bot,lft
                       'background-color':bg_color}
         )
 
-], style={'display': 'inline','font': {'color':text_color}, #'width': '99.999%',
+], style={'display': 'inline','font': {'color':text_color}, 'width': '97.33%',
           'padding':'0px 0px 60px 0px','background-color':bg_color,
           'margin-bottom': '0px'}
 
