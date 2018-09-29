@@ -22,8 +22,8 @@ app = dash.Dash(name='Bootstrap_docker_app',
                 url_base_pathname='/dash/',
                 csrf_protect=False)
 
-bg_color = 'rgb(36,36,36)'
-text_color = 'rgb(255,255,255)'
+text_color = 'rgb(36,36,36)'
+bg_color = 'rgb(255,255,255)'
 grid_color = '#666666'
 black_text = '#000000'
 
@@ -75,8 +75,8 @@ for year in year_index_strings:
 
 app.layout=html.Div([   # top,rt,bot,lft
 
-    html.H2('Market Trends Over a Dozen Years',style={'width':'99.999%','color':'white',
-        'text-align':'center','background-color':bg_color ,
+    html.H3('Market Trends Over a Dozen Years',style={'color':'black','width':'97.33%',
+        'text-align':'center','background-color':bg_color,
             'margin-bottom': '0px','padding':'10px 0px 0px 0px'}
                                                          # 'padding':'10px 0px 100px 0px'})
             ),
@@ -87,27 +87,20 @@ app.layout=html.Div([   # top,rt,bot,lft
 
     dcc.Graph(id='djia_id'), # djia graph
 
-    #dcc.Dropdown(
-    #            id='yr_selector_dd',
-    #            options=options,
-    #            value='2006'
-    #            ),
-
-
     dcc.Graph(id='ndxt_id'), # ndxt graph
-    ],style={'display':'inline-block','width':'33.333%'},
+    ],style={'display':'inline-block'} #'width':'33.333%'
     ),
 
     html.Div ([
     dcc.Graph(id='djiaII_id'), # djia graph
     dcc.Graph(id='gspc_id'), # ndxt graph
-    ],style={'display':'inline-block','width':'33.333%'}
+    ],style={'display':'inline-block'}
     ),
 
     html.Div ([
     dcc.Graph(id='ixic2_id'), # djia graph
     dcc.Graph(id='gspc2_id'), # ndxt graph
-    ],style={'display':'inline-block','width':'33.333%'}
+    ],style={'display':'inline-block'}
     ),
 
     html.Div(dcc.Slider(  # The years range slider
@@ -118,12 +111,12 @@ app.layout=html.Div([   # top,rt,bot,lft
                 step=2,
                 marks= {i: '{}'.format(i) for i in year_index},
 
-            ), style={'color':'red','width': '95%', 'margin-top': '0px',
+            ), style={'color':'red','margin-top': '0px','width': '97.33%',
                       'padding':'30px 38px 30px 30px', # top,rt,bot,lft
                       'background-color':bg_color}
         )
 
-], style={'width': '99.999%','display': 'inline','font': {'color':text_color},
+], style={'display': 'inline','font': {'color':text_color}, #'width': '99.999%',
           'padding':'0px 0px 60px 0px','background-color':bg_color,
           'margin-bottom': '0px'}
 
@@ -186,7 +179,10 @@ def update_stock_graph(value):
                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,
                    'font': {'color':text_color},
                    'xaxis':{'gridcolor':grid_color,'range':[cutoff-first_year],'step':1},
-                   'yaxis': {'gridcolor': grid_color}
+                   'yaxis': {'gridcolor': grid_color},
+                   'auto_size':False,
+                   'width':433,
+                   'height':400
 
     }
     }
@@ -209,7 +205,10 @@ def update_stock_graph(value):
         'layout': {'title':'Nasdaq Tech Sector Closing Price',
                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,'font': {'color':text_color},
                    'xaxis': {'gridcolor': grid_color},
-                   'yaxis': {'gridcolor': grid_color}
+                   'yaxis': {'gridcolor': grid_color} ,
+                   'auto_size': False,
+                   'width':433,
+                   'height':400
                    }
     }
     return fig
@@ -230,7 +229,10 @@ def update_stock_graph(value):
         'layout': {'title':'Djia Closing Price',
                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,'font': {'color':text_color},
                    'xaxis': {'gridcolor': grid_color},
-                   'yaxis': {'gridcolor': grid_color}
+                   'yaxis': {'gridcolor': grid_color} ,
+                   'auto_size': False,
+                   'width': 433,
+                   'height': 400
                    }
     }
     return fig
@@ -250,7 +252,10 @@ def update_stock_graph(value):
         'layout': {'title':'S&P 500 Closing Price',
                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,'font': {'color':text_color},
                    'xaxis': {'gridcolor': grid_color},
-                   'yaxis': {'gridcolor': grid_color}
+                   'yaxis': {'gridcolor': grid_color} ,
+                   'auto_size': False,
+                   'width':433,
+                   'height':400
                    }
     }
     return fig
@@ -271,7 +276,10 @@ def update_stock_graph(value):
         'layout': {'title':'Nasdaq-100 Closing Price',
                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,'font': {'color':text_color},
                    'xaxis': {'gridcolor': grid_color},
-                   'yaxis': {'gridcolor': grid_color}
+                   'yaxis': {'gridcolor': grid_color} ,
+                   'auto_size': False,
+                   'width':433,
+                   'height':400
                    }
     }
     return fig
@@ -291,7 +299,10 @@ def update_stock_graph(value):
         'layout': {'title':'S&P 500 Closing Price',
                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,'font': {'color':text_color},
                    'xaxis': {'gridcolor': grid_color},
-                   'yaxis': {'gridcolor': grid_color}
+                   'yaxis': {'gridcolor': grid_color} ,
+                   'auto_size': False,
+                   'width':433,
+                   'height':400
                    }
     }
     return fig
