@@ -22,8 +22,8 @@ app = dash.Dash(name='Bootstrap_docker_app',
                 url_base_pathname='/dash/',
                 csrf_protect=False)
 
-text_color = 'rgb(36,36,36)'
-bg_color = 'rgb(255,255,255)'
+bg_color = 'rgb(36,36,36)'
+text_color = 'rgb(255,255,255)'
 grid_color = '#666666'
 black_text = '#000000'
 
