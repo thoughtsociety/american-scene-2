@@ -22,6 +22,8 @@ app = dash.Dash(name='Bootstrap_docker_app',
                 url_base_pathname='/dash/',
                 csrf_protect=False)
 
+# Colors for white bg with black text
+
 text_color = 'rgb(36,36,36)'
 bg_color = 'rgb(255,255,255)'
 grid_color = '#666666'
@@ -93,12 +95,14 @@ app.layout=html.Div([   # top,rt,bot,lft
 
     html.Div ([
     dcc.Graph(id='djiaII_id'), # djia graph
+
     dcc.Graph(id='gspc_id'), # ndxt graph
     ],style={'display':'inline-block'}
     ),
 
     html.Div ([
     dcc.Graph(id='ixic2_id'), # djia graph
+
     dcc.Graph(id='gspc2_id'), # ndxt graph
     ],style={'display':'inline-block'}
     ),
@@ -126,6 +130,15 @@ app.layout=html.Div([   # top,rt,bot,lft
 
 # trace all the closing values from year.min to selected max.year using the 'value' (highest year)
 # reshape the array in a temporary array and run it to the end.
+
+# button callbacks to navigate between the three apps
+
+#@app.callback(
+#    Input('dash1_button',pressed)
+#def select_dash1_graph(pressed):
+#    if pressed:
+#        html
+#)
 
 @app.callback( # Stock # 1 - DJIA
     Output('djia_id', 'figure'),
@@ -168,24 +181,58 @@ def update_stock_graph(value):
 
 
 
-    traces.append({'x': f_djia['Date'], 'y': f_djia['Close'], 'name': 'djia'}),
-    traces.append({'x': f_ndxt['Date'], 'y': f_ndxt['Close'], 'name': 'ndxt'}),
-    traces.append({'x': f_ixic['Date'], 'y': f_ixic['Close'], 'name': 'ixic'}),
-    traces.append({'x': f_gspc['Date'], 'y': f_gspc['Close'], 'name':'gspc'}),
+    # traces.append({'x': f_djia['Date'], 'y': f_djia['Close'], 'name': 'djia'}),
+    # traces.append({'x': f_ndxt['Date'], 'y': f_ndxt['Close'], 'name': 'ndxt'}),
+    # traces.append({'x': f_ixic['Date'], 'y': f_ixic['Close'], 'name': 'ixic'}),
+    # traces.append({'x': f_gspc['Date'], 'y': f_gspc['Close'], 'name':'gspc'}),
+
+    # fig = {
+    #     'data': traces,
+    #     'layout': {'title':'DJIA, NDXT, NASDAQ, S&P Closings',
+    #                'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,
+    #                'font': {'color':text_color},
+    #                'xaxis':{'gridcolor':grid_color,'range':[cutoff-first_year],'step':1},
+    #                'yaxis': {'gridcolor': grid_color},
+    #                'auto_size':False,
+    #                'width':433,
+    #                'height':400
+    #
+    # }
+    # }
+
+    trace_ixic = go.Scatter(
+        x=f_ixic['Date'],
+        y=f_ixic['Close'],
+        mode='markers',
+        name='markers'
+    ),
+    trace_gspc = go.Scatter(
+        x=f_ixic['Date'],
+        y=f_gspc['Close'],
+        mode='markers',
+        name='markers'
+    ),
+
+
+    traces.append(trace_ixic),
+    traces.append(trace_gspc),
 
     fig = {
         'data': traces,
-        'layout': {'title':'DJIA, NDXT, NASDAQ, S&P Closings',
-                   'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,
-                   'font': {'color':text_color},
-                   'xaxis':{'gridcolor':grid_color,'range':[cutoff-first_year],'step':1},
+        'layout':{ 'title': 'Nasdaq and S&P 500 Comparison',
+                   'paper_bgcolor': bg_color, 'plot_bgcolor': bg_color,
+                   'font': {'color': text_color},
+                   'xaxis': {'gridcolor': grid_color, 'range': [cutoff - first_year], 'step': 1},
                    'yaxis': {'gridcolor': grid_color},
-                   'auto_size':False,
-                   'width':433,
-                   'height':400
+                   'auto_size': False,
+                   'width': 433,
+                   'height': 400
 
+            [
+
+        ]
     }
-    }
+
     return fig
 
 
