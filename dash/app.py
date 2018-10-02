@@ -205,7 +205,7 @@ def update_stock_graph(value):
             go.Scatter(
                 x=f_ixic['Date'],
                 y=f_ixic['Close'],
-                mode='markers',
+                mode='lines',
                 marker = {
                     'size':4,
                     'color': 'rgb(153, 0, 255)'
