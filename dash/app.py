@@ -200,39 +200,46 @@ def update_stock_graph(value):
     # }
     # }
 
-    trace_ixic = go.Scatter(
-        x=f_ixic['Date'],
-        y=f_ixic['Close'],
-        mode='markers',
-        name='markers'
-    ),
-    trace_gspc = go.Scatter(
-        x=f_ixic['Date'],
-        y=f_gspc['Close'],
-        mode='markers',
-        name='markers'
-    ),
-
-
-    traces.append(trace_ixic),
-    traces.append(trace_gspc),
-
     fig = {
-        'data': traces,
+        'data': [
+            go.Scatter(
+                x=f_ixic['Date'],
+                y=f_ixic['Close'],
+                mode='markers',
+                marker = {
+                    'size':4,
+                    'color': 'rgb(153, 0, 255)'
+                },
+                name='Nasdaq',
+
+            ),
+            go.Scatter(
+                x=f_ixic['Date'],
+                y=f_gspc['Close'],
+                mode='markers',
+                marker={
+                    'size': 4,
+                    'color': 'rgb(255, 0, 153)'
+                },
+                name='S&P-500',
+
+            ),
+
+        ],
         'layout':{ 'title': 'Nasdaq and S&P 500 Comparison',
                    'paper_bgcolor': bg_color, 'plot_bgcolor': bg_color,
                    'font': {'color': text_color},
-                   'xaxis': {'gridcolor': grid_color, 'range': [cutoff - first_year], 'step': 1},
-                   'yaxis': {'gridcolor': grid_color},
+                   'xaxis': {'title':'Years','gridcolor': grid_color, 'range': [cutoff - first_year], 'step': 1},
+                   'yaxis': {'title':'Closing Price','gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
                    'height': 400
 
-            [
 
-        ]
-    }
 
+
+                }
+        }
     return fig
 
 
