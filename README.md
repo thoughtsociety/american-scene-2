@@ -1,3 +1,5 @@
+### American Scene : A new data story from ThoughtSociety.org
+
 A fork of 
 https://github.com/ericcgu/Flask_Dash_Container
 
@@ -8,6 +10,7 @@ on [Jose Portilla's Dash course in Udemy](https://www.udemy.com/interactive-pyth
 ## Multi-App-Container 
 
 09/29/18 - Re-forked Ctindel's mods and deleted the current repo
+10/05-18 - A fork of Multi-App-Dashboard with new names
 
 This is essentially a fork of the Stock Ticker with two apps now. Second one is Eric's simple graph.
 
