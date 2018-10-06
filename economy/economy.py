@@ -17,7 +17,7 @@ pd.core.common.is_list_like = pd.api.types.is_list_like
 
 server = Flask(__name__)
 
-app = dash.Dash(name='Bootstrap_docker_app',
+economy. = dash.Dash(name='Bootstrap_docker_app',
                  server=server,
                 url_base_pathname='/economy/',
                 csrf_protect=False)
@@ -37,8 +37,8 @@ s3_eco_mkt = "https://s3.us-east-2.amazonaws.com/tswrkdataset/economic/mkt_indic
 
 # Get Chryddyp's CSS for Dash from Codepen
 
-app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
-app.css.append_css({"external_url": "https://www.w3schools.com/w3css/4/w3.css"})
+economy.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+economy.css.append_css({"external_url": "https://www.w3schools.com/w3css/4/w3.css"})
 
 # get four excel datafiles - 1 for DJIA and the other for Nasdaq Tech Sector
 
@@ -79,7 +79,7 @@ for year in year_index_strings:
     i+=1
 
 
-app.layout=html.Div([   # top,rt,bot,lft
+economy.layout=html.Div([   # top,rt,bot,lft
 
     html.Div([  # basically the header Div
 
@@ -260,14 +260,14 @@ viewer to look at data from different intervals of time or
 
 # button callbacks to navigate between the three apps
 
-# @app.callback(
+# @economy.callback(
 #    Input('dash1_button',pressed)
 # def select_dash1_graph(pressed):
 #    if pressed:
 #        html
 # )
 
-@app.callback(  # Stock # 1 - DJIA
+@economy.callback(  # Stock # 1 - DJIA
     Output('djia_id', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
@@ -357,7 +357,7 @@ def update_stock_graph(value):
     return fig
 
 
-@app.callback(  # Stock #2 NDXT
+@economy.callback(  # Stock #2 NDXT
     Output('ndxt_id', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
@@ -379,7 +379,7 @@ def update_stock_graph(value):
     }
     return fig
     #
-    # @app.callback( # Stock #3 IXIC
+    # @economy.callback( # Stock #3 IXIC
     #     Output('djiaII_id', 'figure'),
     #     [Input('years-range-slider', 'value')])
     # def update_stock_graph(value):
@@ -403,7 +403,7 @@ def update_stock_graph(value):
     #     }
     #     return fig
     #
-    # @app.callback( # Stock #4 GSPC
+    # @economy.callback( # Stock #4 GSPC
     #     Output('gspc_id', 'figure'),
     #     [Input('years-range-slider', 'value')])
     # def update_stock_graph(value):
@@ -426,7 +426,7 @@ def update_stock_graph(value):
     #     }
     #     return fig
     #
-    # @app.callback( # Stock #3 IXIC
+    # @economy.callback( # Stock #3 IXIC
     #     Output('ixic2_id', 'figure'),
     #     [Input('years-range-slider', 'value')])
     # def update_stock_graph(value):
@@ -450,7 +450,7 @@ def update_stock_graph(value):
     #     }
     #     return fig
     #
-    # @app.callback( # Stock #4 GSPC
+    # @economy.callback( # Stock #4 GSPC
     #     Output('gspc2_id', 'figure'),
     #     [Input('years-range-slider', 'value')])
     # def update_stock_graph(value):
@@ -476,5 +476,5 @@ def update_stock_graph(value):
 
 
 if __name__ == '__main__':
-    #app.run_server(ssl_context='adhoc')
-    app.run_server(debug=True)
+    #economy.run_server(ssl_context='adhoc')
+    economy.run_server(debug=True)
