@@ -1,24 +1,24 @@
 version: '2.1'
 
 services:
-  dash:
-    container_name: dash
-    hostname: dash
+  economy:
+    container_name: economy
+    hostname: economy
     restart: always
-    build: ./dash
+    build: economy
     networks:
       tsworker-net:
     expose:
       - "8000"
     volumes:
       - ./data:/tmp/data:ro
-    command: gunicorn -w 1 -b :8000 app:server
+    command: gunicorn -w 1 -b :8000 economy:server
 
-  dash1:
-    container_name: dash1
-    hostname: dash1
+  elections:
+    container_name: elections
+    hostname: elections
     restart: always
-    build: ./dash1
+    build: elections
     networks:
       tsworker-net:
     expose:
@@ -27,20 +27,20 @@ services:
       - ./data:/tmp/data:ro
     environment:
       - FLASK_ENV=development
-    command: gunicorn --log-level debug -w 1 -b :8500 app1:server
+    command: gunicorn --log-level debug -w 1 -b :8500 elections:server
 
-  dash2:
-    container_name: dash2
-    hostname: dash2
+  social:
+    container_name: social
+    hostname: social
     restart: always
-    build: ./dash2
+    build: social
     networks:
       tsworker-net:
     expose:
     - "9000"
     volumes:
       - ./data:/tmp/data:ro
-    command: gunicorn -w 1 -b :9000 app2:server # was 8000
+    command: gunicorn -w 1 -b :9000 social:server # was 8000
 
   nginx:
     image: nginx:1.15
@@ -59,9 +59,9 @@ services:
     environment:
       - TZ=UTC
     depends_on:
-      - dash
-      - dash1
-      - dash2
+      - economy
+      - elections
+      - social
 
 networks:
   tsworker-net:

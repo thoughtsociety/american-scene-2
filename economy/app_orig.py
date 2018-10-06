@@ -20,7 +20,7 @@ pd.core.common.is_list_like = pd.api.types.is_list_like
 import pandas_datareader.data as web # requires v0.6.0 or later
 
 app = dash.Dash(name='Bootstrap_docker_app',
-                url_base_pathname='/dash/',
+                url_base_pathname='/economy/',
                 csrf_protect=False)
 server = app.server
 

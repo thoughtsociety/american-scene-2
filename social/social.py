@@ -18,16 +18,16 @@ import pandas as pd
 # Launch the application:
 server = Flask(__name__)
 
-app2 = dash.Dash(name='Bootstrap_docker_app',
+social = dash.Dash(name='Bootstrap_docker_app',
                  server=server,
-                url_base_pathname='/dash2/',
+                url_base_pathname='/social/',
                 csrf_protect=False)
 
 # Create a DataFrame from the .csv file:
 df = pd.read_csv('/tmp/data/OldFaithful.csv')
 
 # Create a Dash layout that contains a Graph component:
-app2.layout = html.Div([
+social.layout = html.Div([
     dcc.Graph(
     id='old_faithful',
     figure={
@@ -74,4 +74,4 @@ html.Div([
 
 # Add the server clause:
 if __name__ == '__main__':
-    app2.run_server()
+    social.run_server()
