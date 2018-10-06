@@ -14,16 +14,21 @@ on [Jose Portilla's Dash course in Udemy](https://www.udemy.com/interactive-pyth
 
 This is essentially a fork of the Stock Ticker with two apps now. Second one is Eric's simple graph.
 
-Added second container for the app1 called "dash1" in the docker-compose.yml.
+There are now 3 apps:  
 
-    economy:
+* economy
+* elections
+* social
+
+```
+economy:
         container_name: economy
         restart: always
         build: ./economy
         ports:
         - "8500:8500"
         command: gunicorn -w 1 -b :8500 economy:server
-
+```
 ## Synopsis
 A Nginx and Python Flask Container used for bootstraping continuous deployment of Dash / Plot.ly Applications.
 Requires :
