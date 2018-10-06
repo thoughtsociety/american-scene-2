@@ -17,7 +17,7 @@ pd.core.common.is_list_like = pd.api.types.is_list_like
 
 server = Flask(__name__)
 
-economy. = dash.Dash(name='Bootstrap_docker_app',
+economy = dash.Dash(name='Bootstrap_docker_app',
                  server=server,
                 url_base_pathname='/economy/',
                 csrf_protect=False)
