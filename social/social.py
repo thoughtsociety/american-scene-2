@@ -24,7 +24,10 @@ social = dash.Dash(name='Bootstrap_docker_app',
                 csrf_protect=False)
 
 # Create a DataFrame from the .csv file:
-df = pd.read_csv('/tmp/data/OldFaithful.csv')
+
+s3_eco_elec = "https://s3.us-east-2.amazonaws.com/tswrkdataset/elections/"
+
+df = pd.read_csv(s3_eco_elec+'OldFaithful.csv?versionId=zqBdL4xYGIFLHiwLA94KUIUtw8x1yLYf')
 
 # Create a Dash layout that contains a Graph component:
 social.layout = html.Div([
