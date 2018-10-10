@@ -80,50 +80,50 @@ for year in year_index_strings:
 
 
 economy.layout=html.Div([   # top,rt,bot,lft
-
-    html.Div([  # basically the header Div
-
-        html.H2('The American Scene', style={'color': hard_gray,
-                                             'text-align': 'left', 'background-color': bg_color,
-                                             'margin-bottom': '0px', 'padding': '20px 0px 20px 0px'}
-                ),
-        dcc.Markdown('''
-**A good look** at some data showing economic, political and social 
-trends over the last 10 years does uncover insights into the American mindset. 
-In this data story we explore the intersection of public, political and personal
-activity where we may see some correlation and causation. 
-''')
-    ], style={'width': '40%', 'margin-top': '0px', 'padding': '20px 0px 10px 30px'},
-        className="w3-container"
-    ),
-    dcc.Markdown('''***'''),
-
-    html.Div([
-        html.H3('About The Charts', style={'color': hard_gray,
-                                           'text-align': 'left', 'background-color': bg_color,
-                                           'margin-bottom': '0px', 'padding': '10px 0px 20px 0px'}
-                ),
-        dcc.Markdown('''**Data was collected online - all from open sources.** 
-Many of the graphs have interactive controls to allow the 
-viewer to look at data from different intervals of time or
- to compare multiple data sources in a single graph. 
- You can't hurt it so play as much as you want to.
-
- All of the pages and graphs are made with Plot.ly/Dash which is a 
- visualization framework, optimized for Python-based data science. 
- Under the hood (if you must know) are Python, Javascript, React.js, Flask and Docker.
- All coding was done by the author and is free and open source accessible on github.''')
-    ], style={'margin-top': '0px', 'width': '40%',
-              'padding': '20px 0px 20px 30px', 'border-width': '1px'},  # top,rt,bot,lft
-        className="w3-container"
-        # style={'margin-left':'20px'},
-    ),
-
-    dcc.Markdown('''***'''),
-
-    html.H3('Market Trends Over a Dozen Years', style={'color': blue_text,
-                                                       'text-align': 'left', 'background-color': bg_color,
-                                                       'margin-bottom': '0px', 'padding': '10px 0px 0px 20px'}),
+#
+#     html.Div([  # basically the header Div
+#
+#         html.H2('The American Scene', style={'color': hard_gray,
+#                                              'text-align': 'left', 'background-color': bg_color,
+#                                              'margin-bottom': '0px', 'padding': '20px 0px 20px 0px'}
+#                 ),
+#         dcc.Markdown('''
+# **A good look** at some data showing economic, political and social
+# trends over the last 10 years does uncover insights into the American mindset.
+# In this data story we explore the intersection of public, political and personal
+# activity where we may see some correlation and causation.
+# ''')
+#     ], style={'width': '40%', 'margin-top': '0px', 'padding': '20px 0px 10px 30px'},
+#         className="w3-container"
+#     ),
+#     dcc.Markdown('''***'''),
+#
+#     html.Div([
+#         html.H3('About The Charts', style={'color': hard_gray,
+#                                            'text-align': 'left', 'background-color': bg_color,
+#                                            'margin-bottom': '0px', 'padding': '10px 0px 20px 0px'}
+#                 ),
+#         dcc.Markdown('''**Data was collected online - all from open sources.**
+# Many of the graphs have interactive controls to allow the
+# viewer to look at data from different intervals of time or
+#  to compare multiple data sources in a single graph.
+#  You can't hurt it so play as much as you want to.
+#
+#  All of the pages and graphs are made with Plot.ly/Dash which is a
+#  visualization framework, optimized for Python-based data science.
+#  Under the hood (if you must know) are Python, Javascript, React.js, Flask and Docker.
+#  All coding was done by the author and is free and open source accessible on github.''')
+#     ], style={'margin-top': '0px', 'width': '40%',
+#               'padding': '20px 0px 20px 30px', 'border-width': '1px'},  # top,rt,bot,lft
+#         className="w3-container"
+#         # style={'margin-left':'20px'},
+#     ),
+#
+#     dcc.Markdown('''***'''),
+#
+#     html.H3('Market Trends Over a Dozen Years', style={'color': blue_text,
+#                                                        'text-align': 'left', 'background-color': bg_color,
+#                                                        'margin-bottom': '0px', 'padding': '10px 0px 0px 20px'}),
 
     html.Div([
 
@@ -143,8 +143,8 @@ viewer to look at data from different intervals of time or
             #     ], style={'height':'200px'}
             #     ),
             # dcc.Markdown('''***'''),
-        ], style={'width': '45%',
-                  'padding': '10px 40px 10px 40px', 'display': 'inline-block',
+        ], style={'width': '49%',
+                  'padding': '10px 10px 10px 10px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px'}
         ),
 
@@ -167,11 +167,11 @@ viewer to look at data from different intervals of time or
             #      ], style={'height': '200px'}
             #      ),
             # dcc.Markdown('''***'''),
-        ], style={'width': '45%',
-                  'padding': '10px 40px 10px 40px', 'display': 'inline-block', 'border-width': '1px'}
+        ], style={'width': '49%',
+                  'padding': '10px 10px 10px 10px', 'display': 'inline-block', 'border-width': '1px'}
         ),
 
-    ], style={'width': '90%', 'display': 'inline-block', 'box-sizing': 'border-box'}),
+    ], style={'width': '99%', 'display': 'inline-block', 'box-sizing': 'border-box'}),
 
     # dcc.Markdown('''***'''),
     # ],style={'height':'200px','width':'40%',

@@ -48,29 +48,10 @@ social.layout = html.Div([
             hovermode='closest'
         )
     } # close figure {}
-    ),
-
-    # add another graph
-html.Div([
-    dcc.Graph(
-        id='old_faithful1',
-        figure={
-            'data': [
-                go.Scatter(
-                    x = df['X'],
-                    y = df['Y'],
-                    mode = 'markers'
-                )
-            ],
-            'layout': go.Layout(
-                title = 'Old Faithful Eruption Intervals v Durations',
-                xaxis = {'title': 'Duration of eruption (minutes)'},
-                yaxis = {'title': 'Interval to next eruption (minutes)'},
-                hovermode='closest'
-            ) # close layout ()
-        } # close figure {}
     )
-    ])
+
+
+
 ])
 
 # Close Div ([ ])
