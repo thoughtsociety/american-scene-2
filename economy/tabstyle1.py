@@ -1,20 +1,14 @@
 # coding=utf-8
 
-from flask import Flask
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
 
 from dash.dependencies import Input, Output
 
-server = Flask(__name__)
+app = dash.Dash()
 
-elections = dash.Dash(name='Bootstrap_docker_app',
-                server=server,
-                url_base_pathname='/elections/',
-                csrf_protect=False)
-
-elections.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
 
 
@@ -39,7 +33,7 @@ tab_selected_style = {
     'padding': '6px'
 }
 
-elections.layout = html.Div([
+app.layout = html.Div([
     dcc.Tabs(id="tabs-styled-with-inline", value='tab-1', children=[
         dcc.Tab(label='Economic', value='tab-1', style=tab_style, selected_style=tab_selected_style),
         dcc.Tab(label='Elections', value='tab-2', style=tab_style, selected_style=tab_selected_style),
@@ -49,13 +43,13 @@ elections.layout = html.Div([
     html.Div(id='tabs-content-inline')
 ]) #,style={'width':'90%'})
 
-@elections.callback(Output('tabs-content-inline', 'children'),
+@app.callback(Output('tabs-content-inline', 'children'),
               [Input('tabs-styled-with-inline', 'value')])
 def render_content(tab):
 	if tab == 'tab-1':
 	    return html.Div([
 			dcc.Graph(
-			id='example-graph1',
+			id='example-graph',
 			figure={
 			        'data': [
 			        {'x': [1, 2, 3], 'y': [4, 1, 2],
@@ -65,9 +59,23 @@ def render_content(tab):
 			    ]
 				        }
 			        )
-		        ])
+		        ]),
 
 	elif tab == 'tab-2':
+	    return html.Div([
+		    dcc.Graph(
+		    id='example-graph-1',
+		    figure={
+			    'data': [
+				    {'x': [1, 2, 3], 'y': [1, 4, 1],
+				     'type': 'bar', 'name': 'SF'},
+				    {'x': [1, 2, 3], 'y': [1, 2, 3],
+				     'type': 'bar', 'name': u'Montréal'},
+			    ]
+		    }
+	    )
+		        ]),
+	elif tab == 'tab-3':
 	    return html.Div([
 		    dcc.Graph(
 		    id='example-graph-2',
@@ -82,22 +90,7 @@ def render_content(tab):
 	    )
 		        ])
 
-	elif tab == 'tab-3':
-	    return html.Div([
-		    dcc.Graph(
-		    id='example-graph-3',
-		    figure={
-			    'data': [
-				    {'x': [1, 2, 3], 'y': [1, 4, 1],
-				     'type': 'bar', 'name': 'SF'},
-				    {'x': [1, 2, 3], 'y': [1, 2, 3],
-				     'type': 'bar', 'name': u'Montréal'},
-			    ]
-		    }
-	    )
-		        ])
-
 
 
 if __name__ == '__main__':
-    elections.run_server(debug=True)
+    app.run_server(debug=True)

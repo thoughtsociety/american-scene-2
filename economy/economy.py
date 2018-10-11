@@ -132,8 +132,8 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div([  # Upper-left div top
             html.H4('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='djia_id'),  # djia graph
-            dcc.Markdown('''***'''),
+            dcc.Graph(id='djia_id',style={'border':'2px','float':'left'}),  # djia graph
+            #dcc.Markdown('''***'''),
             # html.Div([ # for quoteblock
             # dcc.Markdown('''>Two indices in comparison: Looking at both the Nasdaq
             # and S&P-500, we can see that they both easily reflect the *crash of 2009*
@@ -151,8 +151,8 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div([  # Upper-right div
             html.H4('Nasdaq Tech Sector Closing Price', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='ndxt_id'),  # djia graph
-            dcc.Markdown('''***'''),
+            dcc.Graph(id='ndxt_id',style={'border':'2px','float':'right'}),  # djia graph
+            #dcc.Markdown('''***'''),
             #  html.Div([
             #  dcc.Markdown('''>**The Nasdaq Tech Sector Index**
             #  is a measure of the power of technology in the marketplace.
@@ -168,10 +168,11 @@ economy.layout=html.Div([   # top,rt,bot,lft
             #      ),
             # dcc.Markdown('''***'''),
         ], style={'width': '49%',
-                  'padding': '10px 10px 10px 10px', 'display': 'inline-block', 'border-width': '1px'}
+                  'padding': '10px 10px 10px 10px', 'display': 'inline-block',
+                  'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey'}
         ),
 
-    ], style={'width': '99%', 'display': 'inline-block', 'box-sizing': 'border-box'}),
+    ], style={'width': '99%', 'display': 'inline-block'}), #, 'box-sizing': 'border-box'}),
 
     # dcc.Markdown('''***'''),
     # ],style={'height':'200px','width':'40%',
@@ -370,7 +371,7 @@ def update_stock_graph(value):
     fig = {
         'data': traces,
         'layout': {'paper_bgcolor': bg_color, 'plot_bgcolor': bg_color, 'font': {'color': text_color},
-                   'xaxis': {'gridcolor': grid_color},
+                   'xaxis': {'title': 'Years','gridcolor': grid_color},
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
