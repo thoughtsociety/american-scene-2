@@ -121,6 +121,18 @@ def render_content(tab):
 					            color=white_text
 							)
 					),
+					xaxis=dict(
+						tickfont=dict(
+							size=14,
+							color=white_text
+						)
+					),
+					yaxis=dict(
+						tickfont=dict(
+							size=14,
+							color=white_text
+						)
+					),
 					paper_bgcolor='rgba(0,0,0,0)',
 					plot_bgcolor='rgba(0,0,0,0)'
 				)
