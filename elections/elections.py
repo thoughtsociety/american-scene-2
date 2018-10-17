@@ -25,6 +25,12 @@ elections = dash.Dash(name='Bootstrap_docker_app',
                 url_base_pathname='/elections/',
                 csrf_protect=False)
 
+# css to disappear the hover bar and undo button
+my_css_url = "/static/my.css"
+#
+#elections.css.append_css({“external_url”: my_css_url})
+
+# chris's css
 elections.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
 
@@ -70,6 +76,10 @@ def render_content(tab):
 	if tab == 'tab-1':
 		return html.Div([
 			dcc.Graph(
+			config={
+				'displayModeBar':False,
+				'queueLength':0
+			},
 			id='example-graph-1',
 			figure = {
 		        'data': [
@@ -114,6 +124,9 @@ def render_content(tab):
 	elif tab == 'tab-2':
 		return html.Div([
 			dcc.Graph(
+			config={
+				'displayModeBar': False
+			},
 			id='example-graph-2',
 			figure={
 				'data': [
@@ -156,6 +169,9 @@ def render_content(tab):
 	elif tab == 'tab-3':
 		return html.Div([
 			dcc.Graph(
+			config={
+				'displayModeBar': False
+			},
 			id='example-graph-3',
 			figure={
 				'data': [
