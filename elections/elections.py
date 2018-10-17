@@ -8,6 +8,7 @@ import dash
 
 from dash.dependencies import Input, Output
 
+white_text = '#ffffff'
 text_color = 'rgb(36,36,36)'
 bg_color = 'rgb(255,255,255)'
 grid_color = '#666666'
@@ -36,7 +37,8 @@ tab_style = {
     'padding': '6px',
     'fontWeight': 'bold',
 	'font-size':'24px',
-	'color': 'rgb(51,153,255)'
+	'color': white_text,
+	'backgroundColor':'rgba(0,0,0,0)'
 }
 
 tab_selected_style = {
@@ -44,6 +46,7 @@ tab_selected_style = {
     'borderBottom': '2px solid #d6d6d6',
     'backgroundColor': '#119DFF',
 	'font-size':'24px',
+	'color': white_text,
     'padding': '6px'
 }
 
@@ -75,6 +78,9 @@ def render_content(tab):
 			        ],
 					'layout': go.Layout(
 						title = 'this is the Economic Slide',
+						titlefont=dict(family='Helvetica Neue',
+						               size=15,
+						               color= white_text),
 						paper_bgcolor = 'rgba(0,0,0,0)',
 						plot_bgcolor = 'rgba(0,0,0,0)'
 				 )
