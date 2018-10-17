@@ -81,7 +81,7 @@ def render_content(tab):
 				'layout': go.Layout(
 					title='This is the Economic Slide',
 					titlefont=dict(family='Helvetica Neue',
-					               size=15,
+					               size=32,
 					               color=white_text),
 					legend=dict(
 							font=dict(
@@ -90,6 +90,19 @@ def render_content(tab):
 					            color=white_text
 							)
 					),
+					xaxis=dict(
+						tickfont=dict(
+							size=12,
+							color=white_text
+						)
+					),
+					yaxis=dict(
+						tickfont=dict(
+							size=12,
+							color=white_text
+						)
+					),
+
 					paper_bgcolor='rgba(0,0,0,0)',
 					plot_bgcolor='rgba(0,0,0,0)'
 				)
@@ -110,9 +123,9 @@ def render_content(tab):
 					 'type': 'bar', 'name': u'Montréal'}
 				],
 				'layout': go.Layout(
-					title='This is the Economic Slide',
+					title='This is the Elections Slide',
 					titlefont=dict(family='Helvetica Neue',
-					               size=15,
+					               size=32,
 					               color=white_text),
 					legend=dict(
 							font=dict(
@@ -123,13 +136,13 @@ def render_content(tab):
 					),
 					xaxis=dict(
 						tickfont=dict(
-							size=14,
+							size=12,
 							color=white_text
 						)
 					),
 					yaxis=dict(
 						tickfont=dict(
-							size=14,
+							size=12,
 							color=white_text
 						)
 					),
@@ -162,6 +175,18 @@ def render_content(tab):
 					            size=12,
 					            color=white_text
 							)
+					),
+					xaxis=dict(
+						tickfont=dict(
+							size=12,
+							color=white_text
+						)
+					),
+					yaxis=dict(
+						tickfont=dict(
+							size=12,
+							color=white_text
+						)
 					),
 					paper_bgcolor='rgba(0,0,0,0)',
 					plot_bgcolor='rgba(0,0,0,0)'
