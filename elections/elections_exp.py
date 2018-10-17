@@ -1,10 +1,10 @@
 # coding=utf-8
 
 from flask import Flask
-import plotly.graph_objs as go
+import dash
 import dash_html_components as html
 import dash_core_components as dcc
-import dash
+import plotly.graph_objs as go
 
 from dash.dependencies import Input, Output
 
@@ -48,40 +48,50 @@ tab_selected_style = {
 }
 
 elections.layout = html.Div([
-    dcc.Tabs(id="tabs-styled-with-inline", value='tab-2', children=[
+    dcc.Tabs(id="tabs-styled-with-inline", value='tab-1', children=[
         dcc.Tab(label='Economic', value='tab-1', style=tab_style, selected_style=tab_selected_style),
         dcc.Tab(label='Elections', value='tab-2', style=tab_style, selected_style=tab_selected_style),
-        dcc.Tab(label='Social', value='tab-3', style=tab_style, selected_style=tab_selected_style)
-
+        dcc.Tab(label='Social', value='tab-3', style=tab_style, selected_style=tab_selected_style),
+        # dcc.Tab(label='Tab 4', value='tab-4', style=tab_style, selected_style=tab_selected_style),
     ], style=tabs_styles),
     html.Div(id='tabs-content-inline')
-]
-)
+]) #,style={'width':'90%'})
 
 @elections.callback(Output('tabs-content-inline', 'children'),
               [Input('tabs-styled-with-inline', 'value')])
 def render_content(tab):
-
 	if tab == 'tab-1':
+
 	    return html.Div([
+
 			dcc.Graph(
 			id='example-graph-1',
-			figure = {
-			        'data': [
-			        {'x': [1, 2, 3], 'y': [4, 1, 2],
-			         'type': 'bar', 'name': 'SF','color':'rgb(77,77,77)'},
-			        {'x': [1, 2, 3], 'y': [2, 4, 5],
-			         'type': 'bar', 'name': u'Montréal'},
-			        ],
-					'layout': go.Layout(
-						title = 'this is the Economic Slide',
-						paper_bgcolor = 'rgba(0,0,0,0)',
-						plot_bgcolor = 'rgba(0,0,0,0)'
-				 )
-				    }
-			    )
+			figure=go.Figure(
+				
+			    data = [
+				    go.Bar(
+				        x = [1, 2, 3],
+						y = [4, 1, 2],
+				        name = 'Montreal',
+					    color='rgb(77,77,77)'
+				    ),
 
-	    ])
+				    go.Bar(
+					    x=[1, 2, 3],
+					    y=[2, 4, 5],
+					    name='New York',
+					    color='rgb(77,77,77)'
+				    )
+			       ],
+				layout=go.Layout(
+					title = 'Economic Data',
+					showlegend=True
+					)
+
+				)
+				)
+			],style={'background-color': hard_gray}
+	    )
 
 
 
@@ -98,8 +108,7 @@ def render_content(tab):
 			    ]
 		    }
 	    )
-		        ]
-	    )
+		        ])
 
 	elif tab == 'tab-3':
 	    return html.Div([
@@ -107,15 +116,14 @@ def render_content(tab):
 		    id='example-graph-3',
 		    figure={
 			    'data': [
-				    {'x': [1, 2, 3], 'y': [2, 4, 3],
+				    {'x': [1, 2, 3], 'y': [1, 4, 1],
 				     'type': 'bar', 'name': 'SF'},
-				    {'x': [1, 2, 3], 'y': [2, 1, 3],
+				    {'x': [1, 2, 3], 'y': [1, 2, 3],
 				     'type': 'bar', 'name': u'Montréal'},
 			    ]
 		    }
 	    )
-		        ]
-	    )
+		        ])
 
 
 
