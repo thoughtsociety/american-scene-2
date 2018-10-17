@@ -84,11 +84,11 @@ def render_content(tab):
 					               size=32,
 					               color=white_text),
 					legend=dict(
-							font=dict(
-					            family='sans-serif',
-					            size=12,
-					            color=white_text
-							)
+						font=dict(
+				            family='sans-serif',
+				            size=12,
+				            color=white_text
+						)
 					),
 					xaxis=dict(
 						tickfont=dict(
@@ -128,11 +128,11 @@ def render_content(tab):
 					               size=32,
 					               color=white_text),
 					legend=dict(
-							font=dict(
-					            family='sans-serif',
-					            size=12,
-					            color=white_text
-							)
+						font=dict(
+				            family='sans-serif',
+				            size=12,
+				            color=white_text
+						)
 					),
 					xaxis=dict(
 						tickfont=dict(
@@ -165,9 +165,9 @@ def render_content(tab):
 					 'type': 'bar', 'name': u'Montréal'},
 				],
 				'layout': go.Layout(
-					title='This is the Economic Slide',
+					title='This is the Social Slide',
 					titlefont=dict(family='Helvetica Neue',
-					               size=15,
+					               size=32,
 					               color=white_text),
 					legend=dict(
 							font=dict(
