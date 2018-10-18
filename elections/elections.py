@@ -70,7 +70,7 @@ elections.layout = html.Div([
         dcc.Tab(label='Social', value='tab-3', style=tab_style, selected_style=tab_selected_style)
 
     ], style=tabs_styles),
-	html.H1("This should be big and black"),
+	# html.H1("This should be big and black"),
     html.Div(id='tabs-content-inline')
 ]
 )
