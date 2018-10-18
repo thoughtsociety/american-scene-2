@@ -99,37 +99,16 @@ def render_content(tab):
 		        ],
 				'layout': go.Layout(
 					title='This is the Economic Slide',
-					titlefont=dict(family='Helvetica Neue',
-					               size=32,
-					               color=white_text),
-					legend=dict(
-						font=dict(
-				            family='sans-serif',
-				            size=12,
-				            color=white_text
-						)
-					),
-					xaxis=dict(
-						tickfont=dict(
-							size=12,
-							color=white_text
-						)
-					),
-					yaxis=dict(
-						tickfont=dict(
-							size=12,
-							color=white_text
-						)
-					),
-
+					titlefont=dict(family='Helvetica Neue', size=32, color=white_text),
+					legend=dict(font=dict(family='sans-serif', size=12, color=white_text)),
+					xaxis=dict(tickfont=dict(size=12, color=white_text)),
+					yaxis=dict(tickfont=dict(size=12, color=white_text)),
 					paper_bgcolor='rgba(0,0,0,0)',
 					plot_bgcolor='rgba(0,0,0,0)'
 				)
-		    }
-		    )
-
-	    ]
-		)
+			}
+			)
+		], className="._dash-undo-redo")
 
 	elif tab == 'tab-2':
 		return html.Div([
@@ -147,28 +126,10 @@ def render_content(tab):
 				],
 				'layout': go.Layout(
 					title='This is the Elections Slide',
-					titlefont=dict(family='Helvetica Neue',
-					               size=32,
-					               color=white_text),
-					legend=dict(
-						font=dict(
-				            family='sans-serif',
-				            size=12,
-				            color=white_text
-						)
-					),
-					xaxis=dict(
-						tickfont=dict(
-							size=12,
-							color=white_text
-						)
-					),
-					yaxis=dict(
-						tickfont=dict(
-							size=12,
-							color=white_text
-						)
-					),
+					titlefont=dict(family='Helvetica Neue', size=32, color=white_text),
+					legend=dict(font=dict(family='sans-serif', size=12, color=white_text)),
+					xaxis=dict(tickfont=dict(size=12, color=white_text)),
+					yaxis=dict(tickfont=dict(size=12, color=white_text)),
 					paper_bgcolor='rgba(0,0,0,0)',
 					plot_bgcolor='rgba(0,0,0,0)'
 				)
@@ -192,28 +153,10 @@ def render_content(tab):
 				],
 				'layout': go.Layout(
 					title='This is the Social Slide',
-					titlefont=dict(family='Helvetica Neue',
-					               size=32,
-					               color=white_text),
-					legend=dict(
-							font=dict(
-					            family='sans-serif',
-					            size=12,
-					            color=white_text
-							)
-					),
-					xaxis=dict(
-						tickfont=dict(
-							size=12,
-							color=white_text
-						)
-					),
-					yaxis=dict(
-						tickfont=dict(
-							size=12,
-							color=white_text
-						)
-					),
+					titlefont=dict(family='Helvetica Neue', size=32, color=white_text),
+					legend=dict(font=dict(family='sans-serif',size=12,color=white_text)),
+					xaxis=dict(tickfont=dict(size=12,color=white_text)),
+					yaxis=dict(tickfont=dict(size=12,color=white_text)),
 					paper_bgcolor='rgba(0,0,0,0)',
 					plot_bgcolor='rgba(0,0,0,0)'
 				)
