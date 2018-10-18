@@ -20,20 +20,25 @@ hard_gray = 'rgb(77,77,77)'
 
 server = Flask(__name__)
 
-elections = dash.Dash(name='Bootstrap_docker_app',
+elections = dash.Dash(__name__,
                 server=server,
                 url_base_pathname='/elections/',
                 csrf_protect=False)
 
-# css to disappear the hover bar and undo button
-my_css_url = "/static/my.css"
+
+s3_css_mycss = "https://s3.us-east-2.amazonaws.com/tswrkdataset/css/my.css"
+s3_css_typography = "https://s3.us-east-2.amazonaws.com/tswrkdataset/css/typography.css"
+
+
+# elections.config.include_asset_files = True
 #
-#elections.css.append_css({“external_url”: my_css_url})
+# elections.css.append_css("my.css")
 
 # chris's css
 elections.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
-
-
+# my and typography.css from S3 bucket
+elections.css.append_css({"external_url": s3_css_mycss})
+# elections.css.append_css({"external_url": s3_css_typography})
 
 tabs_styles = {
     'height': '54px'
@@ -57,6 +62,7 @@ tab_selected_style = {
     'padding': '6px'
 }
 
+
 elections.layout = html.Div([
     dcc.Tabs(id="tabs-styled-with-inline", value='tab-1', children=[
         dcc.Tab(label='Economic', value='tab-1', style=tab_style, selected_style=tab_selected_style),
@@ -64,6 +70,7 @@ elections.layout = html.Div([
         dcc.Tab(label='Social', value='tab-3', style=tab_style, selected_style=tab_selected_style)
 
     ], style=tabs_styles),
+	html.H1("This should be big and black"),
     html.Div(id='tabs-content-inline')
 ]
 )
@@ -75,10 +82,12 @@ def render_content(tab):
 
 	if tab == 'tab-1':
 		return html.Div([
+
 			dcc.Graph(
 			config={
-				'displayModeBar':False,
-				'queueLength':0
+				'displayModeBar':False
+
+				#'queueLength':0
 			},
 			id='example-graph-1',
 			figure = {
@@ -119,7 +128,8 @@ def render_content(tab):
 		    }
 		    )
 
-	    ])
+	    ]
+		)
 
 	elif tab == 'tab-2':
 		return html.Div([
@@ -164,7 +174,7 @@ def render_content(tab):
 				)
 			}
 			)
-		])
+		],className="._dash-undo-redo")
 
 	elif tab == 'tab-3':
 		return html.Div([
@@ -209,7 +219,7 @@ def render_content(tab):
 				)
 			}
 			)
-		])
+		],className="._dash-undo-redo")
 
 
 

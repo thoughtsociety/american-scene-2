@@ -25,6 +25,7 @@ services:
       - "8500"
     volumes:
       - ./data:/tmp/data:ro
+      - ./assets:/tmp/assets:ro
     environment:
       - FLASK_ENV=development
     command: gunicorn --log-level debug -w 1 -b :8500 elections:server

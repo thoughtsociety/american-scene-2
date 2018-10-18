@@ -26,6 +26,7 @@ services:
       - "8500"
     volumes:
       - ./data:/tmp/data:ro
+     # - ./assets:/tmp/assets:ro
     command: gunicorn -w 1 -b :8500 elections:server # was 8000
 
   social:
