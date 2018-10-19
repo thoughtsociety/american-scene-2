@@ -115,7 +115,7 @@ html.Div([
         id='submit-button',
         n_clicks=0,
         children='Submit',
-        style={'fontSize':12, 'marginLeft':'30px', 'color': 'white'}
+        style={'marginLeft':'30px', 'color': 'white'}
     ),
 ], style={'display':'inline-block','color':'rgb(0, 138, 230)'}),
 
