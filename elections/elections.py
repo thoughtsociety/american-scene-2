@@ -76,6 +76,7 @@ elections.layout = html.Div([
 )
 
 
+
 @elections.callback(Output('tabs-content-inline', 'children'),
               [Input('tabs-styled-with-inline', 'value')])
 def render_content(tab):

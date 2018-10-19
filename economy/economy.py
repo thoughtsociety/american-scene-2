@@ -95,7 +95,7 @@ html.Div([
         value=['TSLA'],
         multi=True
     )
-], style={'display':'inline-block', 'verticalAlign':'top', 'width':'30%','padding-bottom':'10'}),
+], style={'display':'inline-block', 'verticalAlign':'top', 'width':'30%','padding': '0px 10px 10px 20px'}),
 
 html.Div([
     html.H5('Select date range:',style={'color':'rgb(0, 138, 230)'}),
@@ -107,7 +107,7 @@ html.Div([
         end_date=datetime.today(),
 
     )
-], style={'display':'inline-block','padding': '0px 10px 0px 20px','height':'10%'} # top,rt,bot,lft
+], style={'display':'inline-block','padding': '0px 10px 10px 20px'} # top,rt,bot,lft
 ),
 
 html.Div([
@@ -115,7 +115,7 @@ html.Div([
         id='submit-button',
         n_clicks=0,
         children='Submit',
-        style={'fontSize':16, 'marginLeft':'30px', 'color': 'white'}
+        style={'fontSize':12, 'marginLeft':'30px', 'color': 'white'}
     ),
 ], style={'display':'inline-block','color':'rgb(0, 138, 230)'}),
 
@@ -131,8 +131,9 @@ dcc.Graph(
     config={'displayModeBar':False}
 
     # 'border':'2px','border-style': 'solid','color':'rgb(0, 138, 230)'
+    )
+    ]
 )
-] )
 
 @economy.callback(
     Output('my_graph', 'figure'),
