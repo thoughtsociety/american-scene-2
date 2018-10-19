@@ -159,7 +159,7 @@ def update_graph(n_clicks,stock_ticker, start_date, end_date):  #
                 paper_bgcolor='rgba(0,0,0,0)',
                 plot_bgcolor='rgba(0,0,0,0)'
             )
-        #{'title':', '.join(stock_ticker)+' Closing Prices'}
+        #{'title':',  '.join(stock_ticker)+'  Closing Prices'}
     }
     return fig
 

@@ -7,3 +7,17 @@ display: none !important;
 ._dash-undo-redo {
   display: none;
 }
+
+.DateInput {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 8px;
+    color: #ffffff;
+    margin: 0;
+    padding: 8px;
+    background: rgba(0,0,0,0);
+    position: relative;
+    display: inline-block;
+    width: 130px;
+    vertical-align: middle;
+}
