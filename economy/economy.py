@@ -85,10 +85,10 @@ for tic in nsdq.index:
 
 economy.layout = html.Div([
 # html.Div([ get_logo() ]),
-html.H2('Compare Stocks',style={'color':'rgb(0, 138, 230)'}),
+html.H4('Compare Stocks',style={'color':'rgb(0, 138, 230)'}),
 
 html.Div([
-    html.H4('Select stock symbols:', style={'paddingRight':'30px','color':'rgb(0, 138, 230)'}),
+    html.H5('Select stock symbols:', style={'paddingRight':'30px','color':'rgb(0, 138, 230)'}),
     dcc.Dropdown(
         id='my_ticker_symbol',
         options=options,
@@ -98,7 +98,7 @@ html.Div([
 ], style={'display':'inline-block', 'verticalAlign':'top', 'width':'30%','padding-bottom':'10'}),
 
 html.Div([
-    html.H4('Select date range:',style={'color':'rgb(0, 138, 230)'}),
+    html.H5('Select date range:',style={'color':'rgb(0, 138, 230)'}),
     dcc.DatePickerRange(
         id='my_date_picker',
         min_date_allowed=datetime(2015, 1, 1),
@@ -115,7 +115,7 @@ html.Div([
         id='submit-button',
         n_clicks=0,
         children='Submit',
-        style={'fontSize':16, 'marginLeft':'30px'}
+        style={'fontSize':16, 'marginLeft':'30px', 'color': 'white'}
     ),
 ], style={'display':'inline-block','color':'rgb(0, 138, 230)'}),
 
