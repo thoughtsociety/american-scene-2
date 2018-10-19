@@ -152,8 +152,8 @@ def update_graph(n_clicks,stock_ticker, start_date, end_date):  #
         'layout':
             go.Layout(
                 title= ','.join(stock_ticker)+ 'Closing Prices',
-                titlefont=dict(family='Helvetica Neue', size=32, color=white_text),
-                #legend=dict(font=dict(family='sans-serif', size=12, color=white_text)),
+                titlefont=dict(family='Helvetica Neue', size=24, color=white_text),
+                legend=dict(font=dict(family='sans-serif', size=12, color=white_text)),
                 xaxis=dict(tickfont=dict(size=12, color=white_text)),
                 yaxis=dict(tickfont=dict(size=12, color=white_text)),
                 paper_bgcolor='rgba(0,0,0,0)',
