@@ -1,3 +1,5 @@
+/*  this css turns off modebar and undo-redo for dash charts 10/18/2018 */
+
 modebar {
 display: none !important;
 }

@@ -1,29 +1,29 @@
+#######
+# First Milestone Project: Develop a Stock Ticker
+# dashboard that either allows the user to enter
+# a ticker symbol into an input box, or to select
+# item(s) from a dropdown list, and uses pandas_datareader
+# to look up and display stock data on a graph.
+######
 
-
-# simple stock comparitor
-from flask import Flask
+# EXPAND STOCK SYMBOL INPUT TO PERMIT MULTIPLE STOCK SELECTION
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
+import base64
+
+from flask import Flask
 import plotly.graph_objs as go
 
 from datetime import datetime
 import pandas as pd
-import numpy as np
 pd.core.common.is_list_like = pd.api.types.is_list_like
-# import pandas_datareader.data as web # requires v0.6.0 or later
+import pandas_datareader.data as web # requires v0.6.0 or later
 
+# some color constants that work with our theme
 
-server = Flask(__name__)
-
-economy = dash.Dash(name='Bootstrap_docker_app',
-                 server=server,
-                url_base_pathname='/economy/',
-                csrf_protect=False)
-
-# Colors for white bg with black text
-
+white_text = '#ffffff'
 text_color = 'rgb(36,36,36)'
 bg_color = 'rgb(255,255,255)'
 grid_color = '#666666'
@@ -33,449 +33,136 @@ blue_text = 'rgb(51, 153, 255)'
 hard_gray = 'rgb(77,77,77)'
 
 
-s3_eco_mkt = "https://s3.us-east-2.amazonaws.com/tswrkdataset/economic/mkt_indices"
+economy = dash.Dash(name='Bootstrap_docker_app',
+                url_base_pathname='/economy/',
+                csrf_protect=False)
+server = economy.server
 
-# Get Chryddyp's CSS for Dash from Codepen
+#
+# External assets
+#
+s3_css_mycss = "https://s3.us-east-2.amazonaws.com/tswrkdataset/css/my.css"
 
 economy.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
-economy.css.append_css({"external_url": "https://www.w3schools.com/w3css/4/w3.css"})
-
-# get four excel datafiles - 1 for DJIA and the other for Nasdaq Tech Sector
-
-djia = pd.read_excel(s3_eco_mkt+'/djia.xls?versionId=syUtXmOsygBMgNLB5TO9tLcw4L6g9zQd')
-ixic = pd.read_csv(s3_eco_mkt+'/ixic.csv?versionId=LJ2y4OTPBHliSdZlTb5gkO216_Dl6LFG')
-ndxt = pd.read_excel(s3_eco_mkt+'/ndxt.xls?versionId=izNDeo6hTgMUWi_QEQ16EqRD1xIvjxL1')
-gspc = pd.read_csv(s3_eco_mkt+'/gspc.csv?versionId=CPvYAZKRHPp1rmcYuuo9XYUXfixoGcgF')
+economy.css.append_css({"external_url": s3_css_mycss})
 
 
-last_year = 2018
-first_year = 2006
 
-# Prepare a clean list of integer years from mkt_Index
-# Return the list
 
-def clean_mkt_index(mkt_Index):
-    yrstr = []
-    year_list = []  # holding unique year strings
-    nyear = []
+nsdq = pd.read_csv("https://s3.us-east-2.amazonaws.com/tswrkdataset/economic/mkt_indices/NASDAQcompanylist.csv")
 
-    for rawdatestr in mkt_Index['Date']:
-        yrstr.append(rawdatestr[0:4]) # extract date info for all dates
-    for years in np.unique(yrstr): # get unique date info by year
-        year_list.append(years)
-    del year_list[-1] # strip the last string which is invalid
-    for nyr in year_list:
-        nyear.append(int(nyr))
-    return nyear
+# logo_image = "https://s3.us-east-2.amazonaws.com/tswrkdataset/static/thought.png"
+#
+#
 
-year_index = clean_mkt_index(djia) # integer years
-year_index_strings = [str(item) for item in year_index] # year strings
+nsdq.set_index('Symbol', inplace=True)
+
 
 options = []
-i = 0
+for tic in nsdq.index:
+    options.append({'label':'{} {}'.format(tic,nsdq.loc[tic]['Name']), 'value':tic})
 
-for year in year_index_strings:
-    options.append({'label':'{}'.format(year),'value':year_index[i]})
-    i+=1
+'''
+    This code block builds a set of divs that consist of :
+        1. H1 and H3 labels
+        2. Drop-down component to select the stock
+        3. Date range picker component
+        4. Button to initiate the selection
+        5. Graph object within the div
+'''
+
+# def get_logo():
+#     encoded_image = base64.b64encode(open(logo_image, "rb").read())
+#     logo = html.Div(
+#         html.Img(
+#             src="data:image/png;base64,{}".format(encoded_image.decode()), height="42"
+#         ),
+#         style={"marginTop": "0"},
+#         className="sept columns",
+#     )
+#     return logo
 
 
-economy.layout=html.Div([   # top,rt,bot,lft
-#
-#     html.Div([  # basically the header Div
-#
-#         html.H2('The American Scene', style={'color': hard_gray,
-#                                              'text-align': 'left', 'background-color': bg_color,
-#                                              'margin-bottom': '0px', 'padding': '20px 0px 20px 0px'}
-#                 ),
-#         dcc.Markdown('''
-# **A good look** at some data showing economic, political and social
-# trends over the last 10 years does uncover insights into the American mindset.
-# In this data story we explore the intersection of public, political and personal
-# activity where we may see some correlation and causation.
-# ''')
-#     ], style={'width': '40%', 'margin-top': '0px', 'padding': '20px 0px 10px 30px'},
-#         className="w3-container"
-#     ),
-#     dcc.Markdown('''***'''),
-#
-#     html.Div([
-#         html.H3('About The Charts', style={'color': hard_gray,
-#                                            'text-align': 'left', 'background-color': bg_color,
-#                                            'margin-bottom': '0px', 'padding': '10px 0px 20px 0px'}
-#                 ),
-#         dcc.Markdown('''**Data was collected online - all from open sources.**
-# Many of the graphs have interactive controls to allow the
-# viewer to look at data from different intervals of time or
-#  to compare multiple data sources in a single graph.
-#  You can't hurt it so play as much as you want to.
-#
-#  All of the pages and graphs are made with Plot.ly/Dash which is a
-#  visualization framework, optimized for Python-based data science.
-#  Under the hood (if you must know) are Python, Javascript, React.js, Flask and Docker.
-#  All coding was done by the author and is free and open source accessible on github.''')
-#     ], style={'margin-top': '0px', 'width': '40%',
-#               'padding': '20px 0px 20px 30px', 'border-width': '1px'},  # top,rt,bot,lft
-#         className="w3-container"
-#         # style={'margin-left':'20px'},
-#     ),
-#
-#     dcc.Markdown('''***'''),
-#
-#     html.H3('Market Trends Over a Dozen Years', style={'color': blue_text,
-#                                                        'text-align': 'left', 'background-color': bg_color,
-#                                                        'margin-bottom': '0px', 'padding': '10px 0px 0px 20px'}),
+economy.layout = html.Div([
+# html.Div([ get_logo() ]),
+html.H2('Compare Stocks',style={'color':'rgb(0, 138, 230)'}),
 
-    html.Div([
-
-        # combi-plots with dropdown
-
-        html.Div([  # Upper-left div top
-            html.H4('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
-            dcc.Markdown('''***'''),
-            dcc.Graph(id='djia_id',style={'border':'2px','float':'left'}),  # djia graph
-            #dcc.Markdown('''***'''),
-            # html.Div([ # for quoteblock
-            # dcc.Markdown('''>Two indices in comparison: Looking at both the Nasdaq
-            # and S&P-500, we can see that they both easily reflect the *crash of 2009*
-            # right after the housing crisis starting taking effect.
-            # ''')
-            #
-            #     ], style={'height':'200px'}
-            #     ),
-            # dcc.Markdown('''***'''),
-        ], style={'width': '49%',
-                  'padding': '10px 10px 10px 10px', 'display': 'inline-block',
-                  'box-sizing': 'border-box', 'border-width': '1px'}
-        ),
-
-        html.Div([  # Upper-right div
-            html.H4('Nasdaq Tech Sector Closing Price', style={'color': blue_text}),
-            dcc.Markdown('''***'''),
-            dcc.Graph(id='ndxt_id',style={'border':'2px','float':'right'}),  # djia graph
-            #dcc.Markdown('''***'''),
-            #  html.Div([
-            #  dcc.Markdown('''>**The Nasdaq Tech Sector Index**
-            #  is a measure of the power of technology in the marketplace.
-            #  Since tech is the engine of the bull market right now, it pays to
-            #  keep a sharp eye on this sector now and into the future. **The Nasdaq Tech Sector Index**
-            #  is a measure of the power of technology in the marketplace.
-            #  Since tech is the engine of the bull market right now, it pays to
-            #  keep a sharp eye on this sector now and into the future.
-            #
-            # ''')
-            #
-            #      ], style={'height': '200px'}
-            #      ),
-            # dcc.Markdown('''***'''),
-        ], style={'width': '49%',
-                  'padding': '10px 10px 10px 10px', 'display': 'inline-block',
-                  'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey'}
-        ),
-
-    ], style={'width': '99%', 'display': 'inline-block'}), #, 'box-sizing': 'border-box'}),
-
-    # dcc.Markdown('''***'''),
-    # ],style={'height':'200px','width':'40%',
-    #              'padding':'10px 40px 10px 40px','display':'inline-block'}
-    # )
-    #
-    # html.Div([
-    # dcc.Markdown('''***'''),
-    # dcc.Graph(id='ndxt_id'), # ndxt graph
-    # dcc.Markdown('''***'''),
-    #     html.Div([
-    #     dcc.Markdown('''>**Nasdaq Tech Sector Index** This is an index that
-    #     has paced major indices on its own. '''
-    #             )
-    #         ],style={'height':'200px'}
-    #         ),
-    # dcc.Markdown('''***'''),
-    # ],style={'height':'200px','display':'inline-block'} #'width':'33.333%'
-    # ),
-    #
-    # html.Div([
-    # dcc.Graph(id='djiaII_id'), # ndxt graph
-    # dcc.Markdown('''***'''),
-    #     html.Div([
-    #     dcc.Markdown('''>**Dow-Jones Industrial Averate ** This is an index that
-    #     has paced major indices on its own. '''
-    #     ),
-    #         ],style={'height':'200px'}
-    #     ),
-    # dcc.Markdown('''***'''),
-    # ],style={'height':'200px','display':'inline-block'} #'width':'33.333%'
-    # ),
-    #
-    # html.Div([
-    # dcc.Graph(id='gspc_id'), # ndxt graph
-    # dcc.Markdown('''***'''),
-    # dcc.Markdown('''>**Standard & Poor 500** This is an index that
-    # has paced major indices on its own. '''
-    # ),
-    # dcc.Markdown('''***'''),
-    # ],style={'height':'200px','display':'inline-block'} #'width':'33.333%'
-    # ),
-    #
-    # html.Div([
-    # dcc.Graph(id='ixic2_id'), # ixic graph
-    # dcc.Markdown('''***'''),
-    # dcc.Markdown('''>**Nasdaq Index** This is an index that
-    # has paced major indices on its own. '''
-    # ),
-    # dcc.Markdown('''***'''),
-    # ],style={'height':'200px','display':'inline-block'} #'width':'33.333%'
-    # ),
-    #
-    # html.Div([
-    # dcc.Graph(id='gspc2_id'), # s&p graph
-    # dcc.Markdown('''***'''),
-    # dcc.Markdown('''>**Standard & Poor 500** This is an index that
-    # has paced major indices on its own. '''
-    # ),
-    # dcc.Markdown('''***'''),
-    # ],style={'height':'200px','display':'inline-block'} #'width':'33.333%'
-    # ),
-    #
-    html.Div(dcc.Slider(  # The years range slider
-        id='years-range-slider',
-        min=2006,
-        max=2018,
-        value=2018,
-        step=2,
-        marks={i: '{}'.format(i) for i in year_index},
-
-    ), style={'color': 'red', 'margin-top': '0px', 'width': '97.33%',
-              'padding': '30px 38px 30px 30px',  # top,rt,bot,lft
-              'background-color': bg_color}
+html.Div([
+    html.H4('Select stock symbols:', style={'paddingRight':'30px','color':'rgb(0, 138, 230)'}),
+    dcc.Dropdown(
+        id='my_ticker_symbol',
+        options=options,
+        value=['TSLA'],
+        multi=True
     )
+], style={'display':'inline-block', 'verticalAlign':'top', 'width':'30%','padding-bottom':'10'}),
 
-]
+html.Div([
+    html.H4('Select date range:',style={'color':'rgb(0, 138, 230)'}),
+    dcc.DatePickerRange(
+        id='my_date_picker',
+        min_date_allowed=datetime(2015, 1, 1),
+        max_date_allowed=datetime.today(),
+        start_date=datetime(2018, 1, 1),
+        end_date=datetime.today(),
 
-)
+    )
+], style={'display':'inline-block','padding': '0px 10px 0px 20px','height':'10%'} # top,rt,bot,lft
+),
 
+html.Div([
+    html.Button(
+        id='submit-button',
+        n_clicks=0,
+        children='Submit',
+        style={'fontSize':16, 'marginLeft':'30px'}
+    ),
+], style={'display':'inline-block','color':'rgb(0, 138, 230)'}),
 
-#### Callbacks
-
-# trace all the closing values from year.min to selected max.year using the 'value' (highest year)
-# reshape the array in a temporary array and run it to the end.
-
-# button callbacks to navigate between the three apps
-
-# @economy.callback(
-#    Input('dash1_button',pressed)
-# def select_dash1_graph(pressed):
-#    if pressed:
-#        html
-# )
-
-@economy.callback(  # Stock # 1 - DJIA
-    Output('djia_id', 'figure'),
-    [Input('years-range-slider', 'value')])
-def update_stock_graph(value):
-    # print (value)
-
-    # original cutoff for the slider
-    # cutoff = (value - first_year) * 12
-
-    '''
-    To use the dropdown, produce a slice range that grabs just the rows
-    from the selected year and copies it into the f_djia df
-    each date has 12 rows of data - 1 for each month
-    To set a lower and upper mask to slice the df, it is the first row of the chosen date +12
-
-    value = integer year.  years go from 2006 - 2018 or 6-18.  This is essentially a range of 12 years.
-    For 12 months.  So the index range is 0-143.  If the selected year is 2010
-
-
-    '''
-
-    # year_val = (int(value) - 2005) - 1
-    # year_end = year_val + 12
-
-    traces = []
-    cutoff = (value - first_year) * 12
-
-    f_djia = djia[0:cutoff]
-    f_ndxt = ndxt[0:cutoff]
-    f_ixic = ixic[0:cutoff]
-    f_gspc = gspc[0:cutoff]
-
-    # f_djia = djia[year_val:year_end]
-    # f_ndxt = ndxt[year_val:year_end]
-    # f_ixic = ixic[year_val:year_end]
-    # f_gspc = gspc[year_val:year_end]
-
-    # traces.append({'x': f_djia['Date'], 'y': f_djia['Close'], 'name': 'djia'}),
-    # traces.append({'x': f_ndxt['Date'], 'y': f_ndxt['Close'], 'name': 'ndxt'}),
-    # traces.append({'x': f_ixic['Date'], 'y': f_ixic['Close'], 'name': 'ixic'}),
-    # traces.append({'x': f_gspc['Date'], 'y': f_gspc['Close'], 'name':'gspc'}),
-
-    # fig = {
-    #     'data': traces,
-    #     'layout': {'title':'DJIA, NDXT, NASDAQ, S&P Closings',
-    #                'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,
-    #                'font': {'color':text_color},
-    #                'xaxis':{'gridcolor':grid_color,'range':[cutoff-first_year],'step':1},
-    #                'yaxis': {'gridcolor': grid_color},
-    #                'auto_size':False,
-    #                'width':433,
-    #                'height':400
-    #
-    # }
-    # }
-    fig = {
+dcc.Graph(
+    id='my_graph',
+    figure={
         'data': [
-            go.Scatter(
-                x=f_ixic['Date'],
-                y=f_ixic['Close'],
-                mode='lines',
-                marker={
-                    'size': 4,
-                    'color': 'rgb(153, 0, 255)'
-                },
-                name='Nasdaq',
-            ),
-            go.Scatter(
-                x=f_ixic['Date'],
-                y=f_gspc['Close'],
-                mode='markers',
-                marker={
-                    'size': 4,
-                    'color': 'rgb(255, 0, 153)'
-                },
-                name='S&P-500',
-            ),
-        ],
-        'layout': {'paper_bgcolor': bg_color, 'plot_bgcolor': bg_color,
-                   'font': {'color': text_color},
-                   'xaxis': {'title': 'Years', 'gridcolor': grid_color, 'range': [cutoff - first_year], 'step': 1},
-                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
-                   'auto_size': False,
-                   'width': 433,
-                   'height': 433
-                   }
-    }
-    return fig
+            {'x': [1,2], 'y': [3,1]},
 
+        ]
+    }, style = {'border':'2px white solid'},
+    className="._dash-undo-redo",
+    config={'displayModeBar':False}
 
-@economy.callback(  # Stock #2 NDXT
-    Output('ndxt_id', 'figure'),
-    [Input('years-range-slider', 'value')])
-def update_stock_graph(value):
+    # 'border':'2px','border-style': 'solid','color':'rgb(0, 138, 230)'
+)
+] )
+
+@economy.callback(
+    Output('my_graph', 'figure'),
+    [Input('submit-button', 'n_clicks')],
+    [State('my_ticker_symbol', 'value'),
+    State('my_date_picker', 'start_date'),
+    State('my_date_picker', 'end_date')])
+def update_graph(n_clicks,stock_ticker, start_date, end_date):  #
+    start = datetime.strptime(start_date[:10], '%Y-%m-%d')
+    end = datetime.strptime(end_date[:10], '%Y-%m-%d')
     traces = []
-    cutoff = (value - first_year) * 12
-    f_ndxt = ndxt[0:cutoff]
-
-    traces.append({'x': f_ndxt['Date'], 'y': f_ndxt['Close'], 'name': 'ndxt'}),
-
+    for tic in stock_ticker:
+        df = web.DataReader(tic,'iex',start,end)
+        traces.append({'x':df.index, 'y': df.close, 'name':tic})
     fig = {
         'data': traces,
-        'layout': {'paper_bgcolor': bg_color, 'plot_bgcolor': bg_color, 'font': {'color': text_color},
-                   'xaxis': {'title': 'Years','gridcolor': grid_color},
-                   'yaxis': {'gridcolor': grid_color},
-                   'auto_size': False,
-                   'width': 433,
-                   'height': 400
-                   }
+        'layout':
+            go.Layout(
+                title= ','.join(stock_ticker)+ 'Closing Prices',
+                titlefont=dict(family='Helvetica Neue', size=32, color=white_text),
+                #legend=dict(font=dict(family='sans-serif', size=12, color=white_text)),
+                xaxis=dict(tickfont=dict(size=12, color=white_text)),
+                yaxis=dict(tickfont=dict(size=12, color=white_text)),
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)'
+            )
+        #{'title':', '.join(stock_ticker)+' Closing Prices'}
     }
     return fig
-    #
-    # @economy.callback( # Stock #3 IXIC
-    #     Output('djiaII_id', 'figure'),
-    #     [Input('years-range-slider', 'value')])
-    # def update_stock_graph(value):
-    #
-    #     traces = []
-    #     cutoff = (value - first_year) * 12
-    #     f_djia = djia[0:cutoff]
-    #
-    #     traces.append({'x': f_djia['Date'], 'y': f_djia['Close'], 'name': 'djia'}),
-    #
-    #     fig = {
-    #         'data': traces,
-    #         'layout': {'title':'Djia Closing Price',
-    #                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,'font': {'color':text_color},
-    #                    'xaxis': {'gridcolor': grid_color},
-    #                    'yaxis': {'gridcolor': grid_color} ,
-    #                    'auto_size': False,
-    #                    'width': 433,
-    #                    'height': 400
-    #                    }
-    #     }
-    #     return fig
-    #
-    # @economy.callback( # Stock #4 GSPC
-    #     Output('gspc_id', 'figure'),
-    #     [Input('years-range-slider', 'value')])
-    # def update_stock_graph(value):
-    #
-    #     traces = []
-    #     cutoff = (value - first_year) * 12
-    #     f_gspc = gspc[0:cutoff]
-    #
-    #     traces.append({'x': f_gspc['Date'], 'y': f_gspc['Close'], 'name': 'gspc'})
-    #     fig = {
-    #         'data': traces,
-    #         'layout': {'title':'S&P 500 Closing Price',
-    #                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,'font': {'color':text_color},
-    #                    'xaxis': {'gridcolor': grid_color},
-    #                    'yaxis': {'gridcolor': grid_color} ,
-    #                    'auto_size': False,
-    #                    'width':433,
-    #                    'height':400
-    #                    }
-    #     }
-    #     return fig
-    #
-    # @economy.callback( # Stock #3 IXIC
-    #     Output('ixic2_id', 'figure'),
-    #     [Input('years-range-slider', 'value')])
-    # def update_stock_graph(value):
-    #
-    #     traces = []
-    #     cutoff = (value - first_year) * 12
-    #     f_ixic = ixic[0:cutoff]
-    #
-    #     traces.append({'x': f_ixic['Date'], 'y': f_ixic['Close'], 'name': 'ixic2'}),
-    #
-    #     fig = {
-    #         'data': traces,
-    #         'layout': {'title':'Nasdaq-100 Closing Price',
-    #                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,'font': {'color':text_color},
-    #                    'xaxis': {'gridcolor': grid_color},
-    #                    'yaxis': {'gridcolor': grid_color} ,
-    #                    'auto_size': False,
-    #                    'width':433,
-    #                    'height':400
-    #                    }
-    #     }
-    #     return fig
-    #
-    # @economy.callback( # Stock #4 GSPC
-    #     Output('gspc2_id', 'figure'),
-    #     [Input('years-range-slider', 'value')])
-    # def update_stock_graph(value):
-    #
-    #     traces = []
-    #     cutoff = (value - first_year) * 12
-    #     f_gspc = gspc[0:cutoff]
-    #
-    #     traces.append({'x': f_gspc['Date'], 'y': f_gspc['Close'], 'name': 'gspc2'})
-    #     fig = {
-    #         'data': traces,
-    #         'layout': {'title':'S&P 500 Closing Price',
-    #                    'paper_bgcolor':bg_color,'plot_bgcolor':bg_color,'font': {'color':text_color},
-    #                    'xaxis': {'gridcolor': grid_color},
-    #                    'yaxis': {'gridcolor': grid_color} ,
-    #                    'auto_size': False,
-    #                    'width':433,
-    #                    'height':400
-    #                    }
-    #     }
-    #     return fig
-
-
 
 if __name__ == '__main__':
     #economy.run_server(ssl_context='adhoc')
-    economy.run_server(debug=True)
+    economy.run_server()
