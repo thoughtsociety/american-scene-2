@@ -10,7 +10,7 @@ get_cert() {
         --webroot \
         -w /var/www \
         -m "steve@thoughtsociety.org" \
-        -d "www.tsworker.com,tsworker.com" 
+        -d "charts1.tsworker.com"
         #--staging
 }
 
