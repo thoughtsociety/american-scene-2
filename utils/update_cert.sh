@@ -31,7 +31,7 @@ docker volume prune -f
 docker container prune -f
 #check_run_cmd "docker ps -qa | xargs docker inspect --format='{{ .State.Pid }}' | xargs -IZ fstrim /proc/Z/root/"
 
-if [ ! -e "/etc/letsencrypt/etc/live/www.tsworker.com/privkey.pem" ]; then
+if [ ! -e "/etc/letsencrypt/etc/live/www.charts1.tsworker.com/privkey.pem" ]; then
     echo "Getting certificates..."
     get_cert
 else
