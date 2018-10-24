@@ -111,6 +111,34 @@ economy.layout=html.Div([   # top,rt,bot,lft
         ),
      ], style={'width':'99%', 'display': 'inline-block'}
 ),
+    html.Div([
+
+        html.Div([  # Upper-left div top
+            html.H4('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
+            dcc.Markdown('''***'''),
+            dcc.Graph(id='djia_id_2',config={'displayModeBar':False},style={'border':'2px','float':'left'})
+
+        ], style={'width': '49%',
+                  'padding': '10px 10px 10px 10px', 'display': 'inline-block',
+                  'box-sizing': 'border-box', 'border-width': '1px','paper_bgcolor':'rgba(0,0,0,0)',
+                'plot_bgcolor':'rgba(0,0,0,0)'}
+        ),
+
+     # upper-left div top
+
+        html.Div([  # Upper-right div
+            html.H4('Nasdaq Tech Sector Closing Price', style={'color': blue_text}),
+            dcc.Markdown('''***'''),
+            dcc.Graph(id='ndxt_id_2',config={'displayModeBar':False},
+                      style={'border':'2px','float':'right'}),  # djia graph
+
+        ], style={'width': '49%',
+                  'padding': '10px 10px 10px 10px', 'display': 'inline-block',
+                  'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey'}
+
+        ),
+     ], style={'width':'99%', 'display': 'inline-block'}
+),
 
 
         html.Div(
@@ -183,6 +211,53 @@ def update_stock_graph(value):
     }
     return fig
 
+@economy.callback(  # Stock # 1 - DJIA
+    Output('djia_id_2', 'figure'),
+    [Input('years-range-slider', 'value')])
+def update_stock_graph(value):
+
+    cutoff = (value - first_year) * 12
+
+    f_ixic = ixic[0:cutoff]
+    f_gspc = gspc[0:cutoff]
+
+    fig = {
+        'data': [
+            go.Scatter(
+                x=f_ixic['Date'],
+                y=f_ixic['Close'],
+                mode='lines',
+                marker={
+                    'size': 4,
+                    'color': 'rgb(153, 0, 255)'
+                },
+                name='Nasdaq',
+            ),
+            go.Scatter(
+                x=f_ixic['Date'],
+                y=f_gspc['Close'],
+                mode='markers',
+                marker={
+                    'size': 4,
+                    'color': 'rgb(255, 0, 153)'
+                },
+                name='S&P-500',
+            ),
+        ],
+        'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
+                   'plot_bgcolor': 'rgba(0,0,0,0)',
+                   'font': {'color': grid_color},
+                   'xaxis': {'title': 'Years', 'gridcolor': grid_color, 'range': [cutoff - first_year], 'step': 1},
+                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
+                   'auto_size': False,
+                   'width': 433,
+                   'height': 433,
+                   }
+    }
+    return fig
+
+
+
 @economy.callback(  # Stock #2 NDXT
     Output('ndxt_id', 'figure'),
     [Input('years-range-slider', 'value')])
@@ -207,6 +282,29 @@ def update_stock_graph(value):
     }
     return fig
 
+@economy.callback(  # Stock #2 NDXT
+    Output('ndxt_id_2', 'figure'),
+    [Input('years-range-slider', 'value')])
+def update_stock_graph(value):
+    traces = []
+    cutoff = (value - first_year) * 12
+    f_ndxt = ndxt[0:cutoff]
+
+    traces.append({'x': f_ndxt['Date'], 'y': f_ndxt['Close'], 'name': 'ndxt'}),
+
+    fig = {
+        'data': traces,
+        'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
+                   'plot_bgcolor': 'rgba(0,0,0,0)',
+                   'font': {'color': grid_color},
+                   'xaxis': {'title': 'Years','gridcolor': grid_color},
+                   'yaxis': {'gridcolor': grid_color},
+                   'auto_size': False,
+                   'width': 433,
+                   'height': 400
+                   }
+    }
+    return fig
 
 if __name__ == '__main__':
     #economy.run_server(ssl_context='adhoc')
