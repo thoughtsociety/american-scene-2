@@ -122,7 +122,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
               'padding': '30px 38px 30px 30px'}  # top,rt,bot,lft}
     )
 
-] #, style={'paper_bgcolor': 'rgba(0,0,0,0)','plot_bgcolor':'rgba(0,0,0,0)'}
+] , style={'paper_bgcolor': 'rgba(0,0,0,0)','plot_bgcolor':'rgba(0,0,0,0)'}
 
 )
 
