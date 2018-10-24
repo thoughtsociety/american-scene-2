@@ -88,7 +88,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div([  # Upper-left div top
             html.H4('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='djia_id',config={'displayModeBar':False},style={'border':'2px','float':'left'})
+            dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px','float':'left'})
 
         ], style={'width': '49%',
                   'padding': '0px 0px 0px 0px', 'display': 'inline-block',
@@ -99,9 +99,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
      # upper-left div top
 
         html.Div([  # Upper-right div
-            html.H4('Nasdaq Tech Sector Closing Price', style={'color': blue_text}),
+            html.H4('Nasdaq Tech Sector and DJIA Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='ndxt_id',config={'displayModeBar':False},
+            dcc.Graph(id='nas_djia',config={'displayModeBar':False},
                       style={'border':'2px','float':'right'}),  # djia graph
 
         ], style={'width': '49%',
@@ -114,9 +114,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
     html.Div([
 
         html.Div([  # Upper-left div top
-            html.H4('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
+            html.H4('Dow-Jones and Nasd Tech Sector Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='djia_id_2',config={'displayModeBar':False},style={'border':'2px','float':'left'})
+            dcc.Graph(id='djia_ndxt',config={'displayModeBar':False},style={'border':'2px','float':'left'})
 
         ], style={'width': '49%',
                   'padding': '0px 0px 0px 0px', 'display': 'inline-block',
@@ -127,9 +127,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
      # upper-left div top
 
         html.Div([  # Upper-right div
-            html.H4('Nasdaq Tech Sector Closing Price', style={'color': blue_text}),
+            html.H4('All Indices : DJIA, IXIC, NDXT, GSPC Compared', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='ndxt_id_2',config={'displayModeBar':False},
+            dcc.Graph(id='all_indices',config={'displayModeBar':False},
                       style={'border':'2px','float':'right'}),  # djia graph
 
         ], style={'width': '49%',
@@ -166,13 +166,15 @@ economy.layout=html.Div([   # top,rt,bot,lft
 # reshape the array in a temporary array and run it to the end.
 
 
-@economy.callback(  # Stock # 1 - DJIA
-    Output('djia_id', 'figure'),
+@economy.callback(  # Chart Upper Left - IXIC, GSPC
+    Output('nas_sp5', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
 
     cutoff = (value - first_year) * 12
 
+    f_djia = djia[0:cutoff]
+    f_ndxt = ndxt[0:cutoff]
     f_ixic = ixic[0:cutoff]
     f_gspc = gspc[0:cutoff]
 
@@ -212,14 +214,14 @@ def update_stock_graph(value):
     return fig
 
 @economy.callback(  # Stock # 1 - DJIA
-    Output('djia_id_2', 'figure'),
+    Output('nas_djia', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
 
     cutoff = (value - first_year) * 12
 
     f_ixic = ixic[0:cutoff]
-    f_gspc = gspc[0:cutoff]
+    f_djia = djia[0:cutoff]
 
     fig = {
         'data': [
@@ -234,14 +236,14 @@ def update_stock_graph(value):
                 name='Nasdaq',
             ),
             go.Scatter(
-                x=f_ixic['Date'],
-                y=f_gspc['Close'],
+                x=f_djia['Date'],
+                y=f_djia['Close'],
                 mode='markers',
                 marker={
                     'size': 4,
                     'color': 'rgb(255, 0, 153)'
                 },
-                name='S&P-500',
+                name='DJIA',
             ),
         ],
         'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
@@ -259,13 +261,16 @@ def update_stock_graph(value):
 
 
 @economy.callback(  # Stock #2 NDXT
-    Output('ndxt_id', 'figure'),
+    Output('djia_ndxt', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
     traces = []
     cutoff = (value - first_year) * 12
+
+    f_djia = djia[0:cutoff]
     f_ndxt = ndxt[0:cutoff]
 
+    traces.append({'x': f_djia['Date'], 'y': f_djia['Close'], 'name': 'djia'}),
     traces.append({'x': f_ndxt['Date'], 'y': f_ndxt['Close'], 'name': 'ndxt'}),
 
     fig = {
@@ -283,14 +288,22 @@ def update_stock_graph(value):
     return fig
 
 @economy.callback(  # Stock #2 NDXT
-    Output('ndxt_id_2', 'figure'),
+    Output('all_indices', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
     traces = []
     cutoff = (value - first_year) * 12
     f_ndxt = ndxt[0:cutoff]
 
+    f_djia = djia[0:cutoff]
+    f_ndxt = ndxt[0:cutoff]
+    f_ixic = ixic[0:cutoff]
+    f_gspc = gspc[0:cutoff]
+
     traces.append({'x': f_ndxt['Date'], 'y': f_ndxt['Close'], 'name': 'ndxt'}),
+    traces.append({'x': f_djia['Date'], 'y': f_djia['Close'], 'name': 'djia'}),
+    traces.append({'x': f_ixic['Date'], 'y': f_ixic['Close'], 'name': 'ixic'}),
+    traces.append({'x': f_gspc['Date'], 'y': f_gspc['Close'], 'name':'gspc'}),
 
     fig = {
         'data': traces,
