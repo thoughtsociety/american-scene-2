@@ -170,13 +170,13 @@ def update_stock_graph(value):
                 name='S&P-500',
             ),
         ],
-        'layout': {'paper_bgcolor': bg_color, 'plot_bgcolor': bg_color,
-                   'font': {'color': text_color},
-                   'xaxis': {'title': 'Years', 'gridcolor': grid_color, 'range': [cutoff - first_year], 'step': 1},
-                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
+        'layout': {'paper_bgcolor':'rgba(0,0,0,0)','plot_bgcolor': 'rgba(0,0,0,0)',
+                   'font': {'color': white},
+                   'xaxis': {'title': 'Years', 'gridcolor': white, 'range': [cutoff - first_year], 'step': 1},
+                   'yaxis': {'title': 'Closing Price', 'gridcolor': white},
                    'auto_size': False,
                    'width': 433,
-                   'height': 433
+                   'height': 433,
                    }
     }
     return fig
@@ -193,9 +193,10 @@ def update_stock_graph(value):
 
     fig = {
         'data': traces,
-        'layout': {'paper_bgcolor': bg_color, 'plot_bgcolor': bg_color, 'font': {'color': text_color},
-                   'xaxis': {'title': 'Years','gridcolor': grid_color},
-                   'yaxis': {'gridcolor': grid_color},
+        'layout': {'paper_bgcolor':'rgba(0,0,0,0)','plot_bgcolor': 'rgba(0,0,0,0)',
+                   'font': {'color': white},
+                   'xaxis': {'title': 'Years','gridcolor': white},
+                   'yaxis': {'gridcolor': white},
                    'auto_size': False,
                    'width': 433,
                    'height': 400
