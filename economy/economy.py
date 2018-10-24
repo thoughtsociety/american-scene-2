@@ -26,7 +26,8 @@ economy = dash.Dash(name='Bootstrap_docker_app',
 
 text_color = 'rgb(36,36,36)'
 bg_color = 'rgb(255,255,255)'
-grid_color = '#666666'
+#grid_color = '#666666'
+grid_color = 'ffffff'
 black_text = '#000000'
 block_quote_text = 'rgb(64,64,64)'
 blue_text = 'rgb(51, 153, 255)'
@@ -170,10 +171,11 @@ def update_stock_graph(value):
                 name='S&P-500',
             ),
         ],
-        'layout': {'paper_bgcolor':'rgba(0,0,0,0)','plot_bgcolor': 'rgba(0,0,0,0)',
-                   'font': {'color': white},
-                   'xaxis': {'title': 'Years', 'gridcolor': white, 'range': [cutoff - first_year], 'step': 1},
-                   'yaxis': {'title': 'Closing Price', 'gridcolor': white},
+        'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
+                   'plot_bgcolor': 'rgba(0,0,0,0)',
+                   'font': {'color': grid_color},
+                   'xaxis': {'title': 'Years', 'gridcolor': grid_color, 'range': [cutoff - first_year], 'step': 1},
+                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
                    'height': 433,
@@ -193,10 +195,11 @@ def update_stock_graph(value):
 
     fig = {
         'data': traces,
-        'layout': {'paper_bgcolor':'rgba(0,0,0,0)','plot_bgcolor': 'rgba(0,0,0,0)',
-                   'font': {'color': white},
-                   'xaxis': {'title': 'Years','gridcolor': white},
-                   'yaxis': {'gridcolor': white},
+        'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
+                   'plot_bgcolor': 'rgba(0,0,0,0)',
+                   'font': {'color': grid_color},
+                   'xaxis': {'title': 'Years','gridcolor': grid_color},
+                   'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
                    'height': 400
