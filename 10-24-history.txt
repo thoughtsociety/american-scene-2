@@ -1,0 +1,279 @@
+    1  pwd
+    2  docker
+    3  sudo snap install docker
+    4  docker
+    5  docker-compose
+    6  ls
+    7  cd ..
+    8  ls
+    9  env
+   10  git
+   11  git clone https://github.com/thoughtsociety/american-scene.git
+   12  cd ..
+   13  ls
+   14  cd home
+   15  cd ubuntu/
+   16  git clone https://github.com/thoughtsociety/american-scene.git
+   17  ls
+   18  cd american-scene/
+   19  ls
+   20  ./deploy.sh
+   21  ls
+   22  /bin/bash run_docker_aws.sh
+   23  docker-machine start default
+   24  docker run hello-world
+   25  sudo docker run hello-world
+   26  docker run -it ubuntu bash
+   27  sudo docker run -it ubuntu bash
+   28  docker container stop ubuntu
+   29  sudo docker container stop ubuntu
+   30  sudo docker ps
+   31  whoami
+   32  sudo groupadd docker
+   33  sudo usermod -aG docker $USER
+   34  exit
+   35  docker run hello-world
+   36  pwd
+   37  ls
+   38  docker
+   39  sudu apt install docker.io
+   40  sudo apt install docker.io
+   41  cat /etc/group
+   42  docker ps
+   43  cd american-scene/
+   44  ls
+   45  /bin/bash run_docker_aws.sh
+   46  docker ps
+   47  docker container stop elections social economy
+   48  ls
+   49  git clone https://github.com/thoughtsociety/american-scene-2.git
+   50  cd american-scene-2
+   51  ls
+   52  /bin/bash run_docker_aws.sh
+   53  docker image -ls
+   54  docker images
+   55  docker system prune -a
+   56  docker images
+   57  /bin/bash run_docker_aws.sh
+   58  ls
+   59  rm -f american-scene
+   60  rm -r american-scene
+   61  rm -rf american-scene
+   62  ls
+   63  pwd
+   64  ls
+   65  ls snap
+   66  ls docker
+   67  ls snap/docker/
+   68  cd snap/docker/
+   69  ls
+   70  ls -al
+   71  ls 321
+   72  ls common
+   73  ls -al common
+   74  docker list
+   75  docker image list
+   76  docker ps
+   77  docker container stop elections social economy
+   78  cd 
+   79  cd american-scene-2/
+   80  ls
+   81  /bin/bash run_docker_aws.sh
+   82  ls /var
+   83  ls /var/log
+   84  status docker
+   85  docker ps -a
+   86  history |grep git
+   87  git pull origin master
+   88  /bin/bash run_docker_aws.sh
+   89  docker image list
+   90  ls
+   91  ./deploy.sh
+   92  /bin/bash run_docker_aws.sh
+   93  df -H
+   94  cd /etc
+   95  ls
+   96  mkdir nginx
+   97  cd american-scene-2/
+   98  ls
+   99  cat /etc/groups
+  100  cat /etc/group
+  101  cd /etc
+  102  ls
+  103  mkdir letsencrypt
+  104  cat /etc/group
+  105  ls -al
+  106  cd ..
+  107  ls -al
+  108  ls -al 
+  109  cd etc
+  110  cat > xxx
+  111  sudo cat > xxx
+  112  cd ..
+  113  sudo chmod 777 etc
+  114  ls -al
+  115  cd 
+  116  cd american-scene-2/
+  117  ls
+  118  /bin/bash run_docker_aws.sh
+  119  ls -al
+  120  cat > /etc/xxx
+  121  ls -al /etc
+  122  rm /etc/xxx
+  123  cd /etc
+  124  cd ..
+  125  ls
+  126  ls -al
+  127  cd etc
+  128  mkdir letsencrypt
+  129  mkdir letsencrypt/etc
+  130  mkdir letsencrypt/www
+  131  ks
+  132  ls
+  133  ls etc
+  134  pwd
+  135  ls
+  136  ls letsencrypt/
+  137  cd /var
+  138  ls
+  139  cd ..
+  140  ls
+  141  ls -al
+  142  cd var
+  143  mkdir www
+  144  cd ..
+  145  sudo chmod 777 var
+  146  cd var
+  147  mkdir www
+  148  cd www
+  149  mkdir letsencrypt
+  150  cd 
+  151  cd american-scene-2/
+  152  /bin/bash run_docker_aws.sh
+  153  docker ps
+  154  cd /etc/letsencrypt/
+  155  ls
+  156  cd etc
+  157  ls
+  158  ls keys
+  159  sudo ls -al keys
+  160  cd 
+  161  cd american-scene-2/
+  162  ls
+  163  docker container stop nginx economy elections social
+  164  exit
+  165  cd american-scene-2/
+  166  git pull origin master
+  167  /bin/bash run_docker_aws.sh
+  168  ping tsworker.com
+  169  /sbin/ifconfig
+  170  ls
+  171  docker ps
+  172  curl https://s3.us-east-2.amazonaws.com/tswrkdataset/css/my.css
+  173  docker ps
+  174  docker exec -it nginx
+  175  docker exec -it nginx /bin/bash
+  176  /bin/bash run_docker_aws.sh
+  177  docker ps
+  178  docker exec -it nginx /bin/bash
+  179  cd /etc/letsencrypt/
+  180  ls
+  181  ls etc
+  182  cd etc/live
+  183  sudo cd etc/live
+  184  ls
+  185  ls www
+  186  ls -al www
+  187  ls -al etc
+  188  cd etc
+  189  ls
+  190  ls -al live
+  191  ls -al
+  192  chmod 777 live
+  193  sudo chmod 777 live
+  194  ls live
+  195  cd live
+  196  ls
+  197  ls -al
+  198  cd charts1.tsworker.com/
+  199  ls
+  200  ls -al
+  201  git pull origin master
+  202  cd 
+  203  cd american-scene-2/
+  204  git pull origin master
+  205  /bin/bash run_docker_aws.sh
+  206  git pull origin master
+  207  /bin/bash run_docker_aws.sh
+  208  ls /etc/letsencrypt/live/
+  209  ls -al /etc/letsencrypt/
+  210  ls -al /etc/letsencrypt/etc
+  211  ls -al /etc/letsencrypt/etc/live
+  212  ls -al /etc/letsencrypt/etc/live/charts1.tsworker.com/
+  213  ls /archive
+  214  ls -al ../../archive
+  215  ls -al /etc/letsencrypt/etc/live
+  216  cd /var
+  217  ls
+  218  cd log
+  219  ls
+  220  ls lastlog
+  221  cd last
+  222  cd lastlog
+  223  ls -al
+  224  more syslog
+  225  more -t syslog
+  226  man more
+  227  tail -n 30
+  228  tail -30 syslog
+  229  cd 
+  230  cd american-scene-2/
+  231  ls
+  232  /bin/bash run_docker_aws.sh
+  233  ls -al /etc/letsencryptlive
+  234  ls -al /etc/letsencrypt/live
+  235  cd /etc
+  236  cd letsencrypt/
+  237  ls
+  238  cd 
+  239  cd american-scene-2/
+  240  ls
+  241  ls utils
+  242  cd utils/
+  243  ls
+  244  cat update_cert.service
+  245  ls -al /etc/letsencrypt/etc/live/www.charts1.tsworker.com
+  246  ls -al /etc/letsencrypt/etc/live/
+  247  cd
+  248  cd american-scene-2/
+  249  ls
+  250  /bin/bash run_docker_aws.sh
+  251  git pull origin master
+  252  /bin/bash run_docker_aws.sh
+  253  ls -al /etc/letsencrypt/etc
+  254  ls -al /etc/letsencrypt/etc/live
+  255  ls -al /etc/letsencrypt/etc/live/charts1.tsworker.com/
+  256  cat /etc/letsencrypt/etc/live/charts1.tsworker.com/README
+  257  ls -al /etc/letsencrypt/etc/live/charts1.tsworker.com/renewal
+  258  ls -al /etc/letsencrypt/etc/live/charts1.tsworker.com
+  259  ls -al /etc/letsencrypt/etc
+  260  ls -al /etc/letsencrypt/etc/renewal
+  261  cat /etc/letsencrypt/etc/renewal/charts1.tsworker.com.conf 
+  262  ls -al /etc/letsencrypt/etc/live/charts1.tsworker.com
+  263  ls -al /etc/letsencrypt
+  264  ls -al /etc/lets
+  265  git pull origin master
+  266  /bin/bash run_docker_aws.sh
+  267  ls -al /etc/letsencrypt/etc/live/charts1.tsworker.com
+  268  ls -al /etc/httpd/conf.d/ssl.conf"
+  269  ls -al /etc/httpd/conf.d/ssl.conf
+  270  ls -al /etc/httpd/conf.d/
+  271  ls -al /etc/httpd
+  272  docker ps
+  273  history |grep docker
+  274  git pull origin master
+  275  /bin/bash run_docker_aws.sh
+  276  git pull origin master
+  277  /bin/bash run_docker_aws.sh
+  278  ping 18.216.116.47
+  279  history > 10-24-history.txt
