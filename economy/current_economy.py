@@ -84,7 +84,7 @@ for tic in nsdq.index:
 
 
 economy.layout = html.Div([
-# html.Div([ get_logo() ]),
+
 html.H4('Compare Stocks',style={'color':'rgb(0, 138, 230)'}),
 
 html.Div([
