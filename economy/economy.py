@@ -87,43 +87,47 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div([  # Upper-left div top
             html.H4('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='djia_id',style={'border':'2px','float':'left'},
-                                          className="._dash-undo-redo",
-                                        config={'displayModeBar':False}),  # djia graph
+            dcc.Graph(id='djia_id',config={'displayModeBar':False},style={'border':'2px','float':'left'})
+
         ], style={'width': '49%',
                   'padding': '10px 10px 10px 10px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px','paper_bgcolor':'rgba(0,0,0,0)',
                 'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
 
+     # upper-left div top
+
         html.Div([  # Upper-right div
             html.H4('Nasdaq Tech Sector Closing Price', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='ndxt_id',style={'border':'2px','float':'right'}),  # djia graph
+            dcc.Graph(id='ndxt_id',config={'displayModeBar':False},
+                      style={'border':'2px','float':'right'}),  # djia graph
 
         ], style={'width': '49%',
                   'padding': '10px 10px 10px 10px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey'}
-        )
 
-    ], style={'width': '99%', 'display': 'inline-block'}), #, 'box-sizing': 'border-box'}),
+        ),
+     ], style={'width':'99%', 'display': 'inline-block'}
+),
 
 
+        html.Div(
+            dcc.Slider(  # The years range slider
+            id='years-range-slider',
+            min=2006,
+            max=2018,
+            value=2018,
+            step=2,
+            marks={i: '{}'.format(i) for i in year_index},
 
-    html.Div( dcc.Slider(  # The years range slider
-        id='years-range-slider',
-        min=2006,
-        max=2018,
-        value=2018,
-        step=2,
-        marks={i: '{}'.format(i) for i in year_index},
+        ), style={'color': 'red', 'margin-top': '0px', 'width': '97.33%',
+                  'padding': '30px 38px 30px 30px',
+                  'paper_bgcolor': 'rgba(0,0,0,0)','plot_bgcolor':'rgba(0,0,0,0)'}  # top,rt,bot,lft}
+            )
 
-    ), style={'color': 'red', 'margin-top': '0px', 'width': '97.33%',
-              'padding': '30px 38px 30px 30px'}  # top,rt,bot,lft}
-    )
 
-] , style={'paper_bgcolor': 'rgba(0,0,0,0)','plot_bgcolor':'rgba(0,0,0,0)'}
-
+    ], className="._dash-undo-redo", style={'paper_bgcolor': 'rgba(0,0,0,0)','plot_bgcolor':'rgba(0,0,0,0)'}
 )
 
 
