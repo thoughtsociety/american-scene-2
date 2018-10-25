@@ -86,9 +86,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
     html.Div([
 
         html.Div([  # Upper-left div top
-            html.H4('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
+            html.H5('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px','float':'left'})
+            dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
 
         ], style={'width': '49%',
                   'padding': '0px 0px 0px 0px', 'display': 'inline-block',
@@ -99,10 +99,10 @@ economy.layout=html.Div([   # top,rt,bot,lft
      # upper-left div top
 
         html.Div([  # Upper-right div
-            html.H4('Nasdaq Tech Sector and DJIA Comparison', style={'color': blue_text}),
+            html.H5('Nasdaq Tech Sector and DJIA Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
             dcc.Graph(id='nas_djia',config={'displayModeBar':False},
-                      style={'border':'2px','float':'right'}),  # djia graph
+                      style={'border':'2px'})#,'float':'right'}),  # djia graph
 
         ], style={'width': '49%',
                   'padding': '0px 0px 0px 0px', 'display': 'inline-block',
@@ -114,9 +114,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
     html.Div([
 
         html.Div([  # Upper-left div top
-            html.H4('Dow-Jones and Nasd Tech Sector Comparison', style={'color': blue_text}),
+            html.H5('Dow-Jones and Nasd Tech Sector Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='djia_ndxt',config={'displayModeBar':False},style={'border':'2px','float':'left'})
+            dcc.Graph(id='djia_ndxt',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
 
         ], style={'width': '49%',
                   'padding': '0px 0px 0px 0px', 'display': 'inline-block',
@@ -127,10 +127,10 @@ economy.layout=html.Div([   # top,rt,bot,lft
      # upper-left div top
 
         html.Div([  # Upper-right div
-            html.H4('All Indices : DJIA, IXIC, NDXT, GSPC Compared', style={'color': blue_text}),
+            html.H5('All Indices : DJIA, IXIC, NDXT, GSPC Compared', style={'color': blue_text}),
             dcc.Markdown('''***'''),
             dcc.Graph(id='all_indices',config={'displayModeBar':False},
-                      style={'border':'2px','float':'right'}),  # djia graph
+                      style={'border':'2px'})#,'float':'right'}),  # djia graph
 
         ], style={'width': '49%',
                   'padding': '0px 0px 0px 0px', 'display': 'inline-block',
@@ -144,15 +144,15 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div(
             dcc.Slider(  # The years range slider
             id='years-range-slider',
+            marks={i: '{}'.format(i) for i in year_index},
             min=2006,
             max=2018,
             value=2018,
-            step=2,
-            marks={i: '{}'.format(i) for i in year_index},
+            step=2
 
-        ), style={'color': 'red', 'margin-top': '0px', 'width': '97.33%',
-                  'padding': '30px 38px 30px 30px',
-                  'paper_bgcolor': 'rgba(0,0,0,0)','plot_bgcolor':'rgba(0,0,0,0)'}  # top,rt,bot,lft}
+            ), style={'color': 'red', 'margin-top': '0px', 'width': '97.33%',
+                      'padding': '30px 38px 30px 30px',
+                      'paper_bgcolor': 'rgba(0,0,0,0)','plot_bgcolor':'rgba(0,0,0,0)'}  # top,rt,bot,lft}
             )
 
 
@@ -209,6 +209,7 @@ def update_stock_graph(value):
                    'auto_size': False,
                    'width': 433,
                    'height': 433,
+                   'margin': {'l':10,'r':0,'b':0,'t':0},
                    }
     }
     return fig
@@ -249,12 +250,13 @@ def update_stock_graph(value):
         'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
                    'plot_bgcolor': 'rgba(0,0,0,0)',
                    'font': {'color': grid_color},
-                   'xaxis': {'title': 'Years', 'gridcolor': grid_color, 'range': [cutoff - first_year], 'step': 1},
+                   'xaxis': {'title': 'Years', 'gridcolor': grid_color,'range': [cutoff - first_year], 'step': 1},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
                    'height': 433,
-                   }
+                   'margin': {'l': 0, 'r': 0, 'b': 0, 't': 0},
+                    }
     }
     return fig
 
@@ -282,7 +284,8 @@ def update_stock_graph(value):
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
-                   'height': 400
+                   'height': 433,
+                   'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
                    }
     }
     return fig
@@ -314,7 +317,9 @@ def update_stock_graph(value):
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
-                   'height': 400
+                   'height': 433,
+                   'margin': {'l': 0, 'r': 0, 'b': 0, 't': 0},
+
                    }
     }
     return fig
