@@ -208,7 +208,7 @@ def update_stock_graph(value):
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
-                   'height': 433,
+                   'height': 400,
                    'margin': {'l':10,'r':0,'b':0,'t':0},
                    }
     }
@@ -254,7 +254,7 @@ def update_stock_graph(value):
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
-                   'height': 433,
+                   'height': 400,
                    'margin': {'l': 0, 'r': 0, 'b': 0, 't': 0},
                     }
     }
@@ -284,7 +284,7 @@ def update_stock_graph(value):
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
-                   'height': 433,
+                   'height': 400,
                    'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
                    }
     }
@@ -317,7 +317,7 @@ def update_stock_graph(value):
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
                    'width': 433,
-                   'height': 433,
+                   'height': 400,
                    'margin': {'l': 0, 'r': 0, 'b': 0, 't': 0},
 
                    }
