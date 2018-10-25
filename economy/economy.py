@@ -92,7 +92,8 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '49%',
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
-                  'box-sizing': 'border-box', 'border-width': '1px','paper_bgcolor':'rgba(0,0,0,0)',
+                  'box-sizing': 'border-box', 'border-width': '1px',
+                  'paper_bgcolor':'rgba(0,0,0,0)',
                 'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
 
@@ -106,7 +107,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '49%',
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
-                  'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey'}
+                  'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
+                  'paper_bgcolor':'rgba(0,0,0,0)',
+                  'plot_bgcolor':'rgba(0,0,0,0)'}
 
         ),
      ], style={'width':'99%', 'display': 'inline-block'}
@@ -120,8 +123,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '49%',
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
-                  'box-sizing': 'border-box', 'border-width': '1px','paper_bgcolor':'rgba(0,0,0,0)',
-                'plot_bgcolor':'rgba(0,0,0,0)'}
+                  'box-sizing': 'border-box', 'border-width': '1px',
+                  'paper_bgcolor':'rgba(0,0,0,0)',
+                  'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
 
      # upper-left div top
@@ -135,7 +139,8 @@ economy.layout=html.Div([   # top,rt,bot,lft
         ], style={'width': '49%',
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey'}
-
+                  'paper_bgcolor':'rgba(0,0,0,0)',
+                  'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
      ], style={'width':'99%', 'display': 'inline-block'}
 ),
@@ -152,7 +157,8 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
             ), style={'color': 'red', 'margin-top': '0px', 'width': '95.33%',
                       'padding': '30px 38px 30px 30px',
-                      'paper_bgcolor': 'rgba(0,0,0,0)','plot_bgcolor':'rgba(0,0,0,0)'}  # top,rt,bot,lft}
+                      'paper_bgcolor': 'rgba(0,0,0,0)',
+                      'plot_bgcolor':'rgba(0,0,0,0)'}  # top,rt,bot,lft}
             )
 
 
