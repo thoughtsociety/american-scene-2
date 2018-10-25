@@ -91,7 +91,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
 
         ], style={'width': '49%',
-                  'padding': '0px 0px 0px 10px', 'display': 'inline-block',
+                  'padding': '0px 0px 0px 20px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px','paper_bgcolor':'rgba(0,0,0,0)',
                 'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
@@ -105,7 +105,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
                       style={'border':'2px'})#,'float':'right'}),  # djia graph
 
         ], style={'width': '49%',
-                  'padding': '0px 0px 0px 10px', 'display': 'inline-block',
+                  'padding': '0px 0px 0px 20px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey'}
 
         ),
@@ -119,7 +119,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Graph(id='djia_ndxt',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
 
         ], style={'width': '49%',
-                  'padding': '0px 0px 0px 10px', 'display': 'inline-block',
+                  'padding': '0px 0px 0px 20px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px','paper_bgcolor':'rgba(0,0,0,0)',
                 'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
@@ -133,7 +133,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
                       style={'border':'2px'})#,'float':'right'}),  # djia graph
 
         ], style={'width': '49%',
-                  'padding': '0px 0px 0px 10px', 'display': 'inline-block',
+                  'padding': '0px 0px 0px 20px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey'}
 
         ),
@@ -150,7 +150,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             value=2018,
             step=2
 
-            ), style={'color': 'red', 'margin-top': '0px', 'width': '97.33%',
+            ), style={'color': 'red', 'margin-top': '0px', 'width': '95.33%',
                       'padding': '30px 38px 30px 30px',
                       'paper_bgcolor': 'rgba(0,0,0,0)','plot_bgcolor':'rgba(0,0,0,0)'}  # top,rt,bot,lft}
             )
