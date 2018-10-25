@@ -138,9 +138,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '49%',
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
-                  'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey'}
+                  'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
-                  'plot_bgcolor':'rgba(0,0,0,0)'}
+                  'plot_bgcolor':'rgba(0,0,0,0)' }
         ),
      ], style={'width':'99%', 'display': 'inline-block'}
 ),
