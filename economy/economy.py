@@ -212,7 +212,7 @@ def update_stock_graph(value):
                    'font': {'color': grid_color},
                    'xaxis': {'title': 'Years', 'gridcolor': grid_color, 'range': [cutoff - first_year],
                              'step': 1,'margin':{'l':10,'b':10},'linecolor':'white'},
-                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
+                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color,'linecolor':'white'},
                    'auto_size': True
                    #'width': '300px',
                    #'height': '300px',
@@ -257,8 +257,8 @@ def update_stock_graph(value):
         'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
                    'plot_bgcolor': 'rgba(0,0,0,0)',
                    'font': {'color': grid_color},
-                   'xaxis': {'title': 'Years', 'gridcolor': grid_color,'range': [cutoff - first_year], 'step': 1},
-                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
+                   'xaxis': {'title': 'Years', 'gridcolor': grid_color,'linecolor':'white','range': [cutoff - first_year], 'step': 1},
+                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color,'linecolor':'white'},
                    'auto_size': True
                    # 'width': '300px',
                    # 'height': '300px',
@@ -287,8 +287,8 @@ def update_stock_graph(value):
         'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
                    'plot_bgcolor': 'rgba(0,0,0,0)',
                    'font': {'color': grid_color},
-                   'xaxis': {'title': 'Years','gridcolor': grid_color},
-                   'yaxis': {'title': 'Closing Price','gridcolor': grid_color},
+                   'xaxis': {'title': 'Years','gridcolor': grid_color,'linecolor':'white'},
+                   'yaxis': {'title': 'Closing Price','gridcolor': grid_color,'linecolor':'white'},
                    'auto_size': True
                    # 'width': '300px',
                    # 'height': '300px',
@@ -320,8 +320,8 @@ def update_stock_graph(value):
         'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
                    'plot_bgcolor': 'rgba(0,0,0,0)',
                    'font': {'color': grid_color},
-                   'xaxis': {'title': 'Years','gridcolor': grid_color},
-                   'yaxis': {'title': 'Closing Price','gridcolor': grid_color},
+                   'xaxis': {'title': 'Years','gridcolor': grid_color,'linecolor':'white'},
+                   'yaxis': {'title': 'Closing Price','gridcolor': grid_color,'linecolor':'white'},
                    'auto_size': True
                    # 'width': '300px',
                    # 'height': '300px',
