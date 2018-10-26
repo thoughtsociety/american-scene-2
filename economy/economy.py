@@ -159,7 +159,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             step=2
 
             ), style={'color': 'red', 'margin-top': '0px', 'width': '95.33%',
-                      'padding': '30px 38px 30px 30px',
+                      'padding': '10px 38px 10px 30px',
                       'paper_bgcolor': 'rgba(0,0,0,0)',
                       'plot_bgcolor':'rgba(0,0,0,0)'}  # top,rt,bot,lft}
             )
