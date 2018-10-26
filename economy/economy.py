@@ -213,7 +213,7 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years', 'gridcolor': grid_color, 'range': [cutoff - first_year],
                              'step': 1,'margin':{'l':10,'b':10}},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
-                   'auto_size': False
+                   'auto_size': True
                    #'width': '300px',
                    #'height': '300px',
                    #'margin': {'l':10,'r':0,'b':0,'t':0},
@@ -259,7 +259,7 @@ def update_stock_graph(value):
                    'font': {'color': grid_color},
                    'xaxis': {'title': 'Years', 'gridcolor': grid_color,'range': [cutoff - first_year], 'step': 1},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
-                   'auto_size': False
+                   'auto_size': True
                    # 'width': '300px',
                    # 'height': '300px',
                    # 'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
@@ -289,7 +289,7 @@ def update_stock_graph(value):
                    'font': {'color': grid_color},
                    'xaxis': {'title': 'Years','gridcolor': grid_color},
                    'yaxis': {'gridcolor': grid_color},
-                   'auto_size': False
+                   'auto_size': True
                    # 'width': '300px',
                    # 'height': '300px',
                    # 'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
@@ -322,7 +322,7 @@ def update_stock_graph(value):
                    'font': {'color': grid_color},
                    'xaxis': {'title': 'Years','gridcolor': grid_color},
                    'yaxis': {'gridcolor': grid_color},
-                   'auto_size': False
+                   'auto_size': True
                    # 'width': '300px',
                    # 'height': '300px',
                    # 'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
