@@ -145,7 +145,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)' }
         ),
-     ], style={'width':'99%', 'margin-top': '0px', 'margin-bottom': '0px','display': 'inline-block'}
+     ], style={'width':'99%', 'margin': {'t': 0}, 'margin': {'b': 0},'display': 'inline-block'}
 ),
 
 
