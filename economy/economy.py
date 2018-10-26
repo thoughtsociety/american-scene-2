@@ -92,10 +92,10 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '50%','float':'left',
                   'margin_top':'5px',
-                  'padding': '0px 0px 0px 0px', 'display': 'block',
+                  #'padding': '0px 0px 0px 0px', 'display': 'block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
-                  'plot_bgcolor':'rgba(0,0,0,0)'}
+                  'plot_bgcolor':'rgba(0,0,0,0)'},
         ),
 
      # upper-left div top
@@ -108,13 +108,14 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '50%','float':'right',
                   'margin_top':'5px',
-                  'padding': '0px 0px 0px 0px', 'display': 'block',# top,rt,bot,lft}
+                  'padding': '0px 0px 0px 0px', 'display': 'inline-block',# top,rt,bot,lft}
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)'}
 
+
         ),
-     ], style={'width':'99%', 'margin-top': '0px','display': 'inline-block',}
+     ], style={'width':'99%', 'margin-top': '0px','display': 'inline-block'}
 ),
     html.Div([
 
@@ -209,16 +210,18 @@ def update_stock_graph(value):
                 name='S&P-500',
             ),
         ],
-        'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
+        'layout':
+
+                {'paper_bgcolor':'rgba(0,0,0,0)',
                    'plot_bgcolor': 'rgba(0,0,0,0)',
                    'font': {'color': grid_color},
                    'xaxis': {'title': 'Years', 'gridcolor': grid_color, 'range': [cutoff - first_year],
                              'step': 1,'margin':{'l':10,'b':10},'linecolor':'white'},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color,'linecolor':'white'},
-                   'auto_size': True
+                   'auto_size': True,
                    #'width': '300px',
                    #'height': '300px',
-                   #'margin': {'l':10,'r':0,'b':0,'t':0},
+                   'margin': {'t':0}
                    }
     }
     return fig
@@ -261,10 +264,10 @@ def update_stock_graph(value):
                    'font': {'color': grid_color},
                    'xaxis': {'title': 'Years', 'gridcolor': grid_color,'linecolor':'white','range': [cutoff - first_year], 'step': 1},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color,'linecolor':'white'},
-                   'auto_size': True
+                   'auto_size': True,
                    # 'width': '300px',
                    # 'height': '300px',
-                   # 'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
+                   'margin': {'t': 0}
                     }
     }
     return fig
