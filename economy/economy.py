@@ -88,9 +88,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div([  # Upper-left div top
             html.H5('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px','float':'left'})
+            dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
 
-        ], style={'width': '33%',
+        ], style={'width': '40%',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -103,9 +103,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
             html.H5('Nasdaq Tech Sector and DJIA Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
             dcc.Graph(id='nas_djia',config={'displayModeBar':False},
-                      style={'border':'2px','float':'right'}),  # djia graph
+                      style={'border':'2px'})#,'float':'right'}),  # djia graph
 
-        ], style={'width': '33%',
+        ], style={'width': '40%',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',# top,rt,bot,lft}
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -119,9 +119,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div([  # Upper-left div top
             html.H5('Dow-Jones and Nasd Tech Sector Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='djia_ndxt',config={'displayModeBar':False},style={'border':'2px','float':'left'})
+            dcc.Graph(id='djia_ndxt',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
 
-        ], style={'width': '33%',
+        ], style={'width': '40%',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -134,9 +134,9 @@ economy.layout=html.Div([   # top,rt,bot,lft
             html.H5('All Indices : DJIA, IXIC, NDXT, GSPC Compared', style={'color': blue_text}),
             dcc.Markdown('''***'''),
             dcc.Graph(id='all_indices',config={'displayModeBar':False},
-                      style={'border':'2px','float':'right'}),  # djia graph
+                      style={'border':'2px'})#,'float':'right'}),  # djia graph
 
-        ], style={'width': '33%',
+        ], style={'width': '40%',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
