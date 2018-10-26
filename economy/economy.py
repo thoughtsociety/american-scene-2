@@ -90,7 +90,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Markdown('''***'''),
             dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px','float':'left'})
 
-        ], style={'width': '49%',
+        ], style={'width': '33%',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -105,7 +105,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Graph(id='nas_djia',config={'displayModeBar':False},
                       style={'border':'2px','float':'right'}),  # djia graph
 
-        ], style={'width': '49%',
+        ], style={'width': '33%',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',# top,rt,bot,lft}
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -121,7 +121,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Markdown('''***'''),
             dcc.Graph(id='djia_ndxt',config={'displayModeBar':False},style={'border':'2px','float':'left'})
 
-        ], style={'width': '49%',
+        ], style={'width': '33%',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -136,7 +136,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Graph(id='all_indices',config={'displayModeBar':False},
                       style={'border':'2px','float':'right'}),  # djia graph
 
-        ], style={'width': '49%',
+        ], style={'width': '33%',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
