@@ -112,7 +112,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
                   'plot_bgcolor':'rgba(0,0,0,0)'}
 
         ),
-     ], style={'width':'99%', 'display': 'inline-block'}
+     ], style={'width':'99%', 'margin-top': '0px','display': 'inline-block',}
 ),
     html.Div([
 
@@ -142,7 +142,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)' }
         ),
-     ], style={'width':'99%', 'display': 'inline-block'}
+     ], style={'width':'99%', 'margin-top': '0px', 'margin-bottom': '10px','display': 'inline-block'}
 ),
 
 
