@@ -94,7 +94,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
-                'plot_bgcolor':'rgba(0,0,0,0)'}
+                  'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
 
      # upper-left div top
@@ -197,7 +197,7 @@ def update_stock_graph(value):
                 name='Nasdaq',
             ),
             go.Scatter(
-                x=f_ixic['Date'],
+                x=f_gspc['Date'],
                 y=f_gspc['Close'],
                 mode='markers',
                 marker={
@@ -214,7 +214,7 @@ def update_stock_graph(value):
                              'step': 1,'margin':{'l':10,'b':10}},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': 433,
+                   'width': 400,
                    'height': 400,
                    'margin': {'l':10,'r':0,'b':0,'t':0},
                    }
@@ -260,9 +260,9 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years', 'gridcolor': grid_color,'range': [cutoff - first_year], 'step': 1},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': 433,
+                   'width': 400,
                    'height': 400,
-                   'margin': {'l': 0, 'r': 0, 'b': 0, 't': 0},
+                   'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
                     }
     }
     return fig
@@ -290,7 +290,7 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years','gridcolor': grid_color},
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': 433,
+                   'width': 400,
                    'height': 400,
                    'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
                    }
@@ -323,9 +323,9 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years','gridcolor': grid_color},
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': 433,
+                   'width': 400,
                    'height': 400,
-                   'margin': {'l': 0, 'r': 0, 'b': 0, 't': 0},
+                   'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
 
                    }
     }
