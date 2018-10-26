@@ -88,7 +88,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div([  # Upper-left div top
             html.H5('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px','bordercolor': '#ffffff'})#,'float':'left'})
+            dcc.Graph(id='nas_sp5',config={'displayModeBar':False})#,'float':'left'})
 
         ], style={'width': '48%','float':'left',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
@@ -102,8 +102,8 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div([  # Upper-right div
             html.H5('Nasdaq Tech Sector and DJIA Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='nas_djia',config={'displayModeBar':False},
-                      style={'border':'2px'})#,'float':'right'}),  # djia graph
+            dcc.Graph(id='nas_djia',config={'displayModeBar':False})
+                #,'float':'right'}),  # djia graph
 
         ], style={'width': '48%','float':'right',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',# top,rt,bot,lft}
@@ -116,10 +116,10 @@ economy.layout=html.Div([   # top,rt,bot,lft
 ),
     html.Div([
 
-        html.Div([  # Upper-left div top
+        html.Div([  # Lower-left div top
             html.H5('Dow-Jones and Nasd Tech Sector Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='djia_ndxt',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
+            dcc.Graph(id='djia_ndxt',config={'displayModeBar':False})#,'float':'left'})
 
         ], style={'width': '48%','float':'left',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
@@ -130,11 +130,11 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
      # upper-left div top
 
-        html.Div([  # Upper-right div
+        html.Div([  # Lower-right div
             html.H5('All Indices : DJIA, IXIC, NDXT, GSPC Compared', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='all_indices',config={'displayModeBar':False},
-                      style={'border':'2px'})#,'float':'right'}),  # djia graph
+            dcc.Graph(id='all_indices',config={'displayModeBar':False})
+                      #,'float':'right'}),  # djia graph
 
         ], style={'width': '48%','float':'right',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
