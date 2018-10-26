@@ -88,7 +88,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
         html.Div([  # Upper-left div top
             html.H5('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
             dcc.Markdown('''***'''),
-            dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
+            dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px','bordercolor': '#000000'})#,'float':'left'})
 
         ], style={'width': '48%','float':'left',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
