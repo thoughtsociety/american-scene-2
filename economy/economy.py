@@ -91,7 +91,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Graph(id='nas_sp5',config={'displayModeBar':False})#,'float':'left'})
 
         ], style={'width': '50%','float':'left',
-                  'padding': '0px 0px 0px 0px', 'display': 'inline-block',
+                  'padding': '0px 0px 0px 0px', 'display': 'block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)'}
@@ -106,7 +106,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
                 #,'float':'right'}),  # djia graph
 
         ], style={'width': '50%','float':'right',
-                  'padding': '0px 0px 0px 0px', 'display': 'inline-block',# top,rt,bot,lft}
+                  'padding': '0px 0px 0px 0px', 'display': 'block',# top,rt,bot,lft}
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)'}
