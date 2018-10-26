@@ -90,7 +90,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Markdown('''***'''),
             dcc.Graph(id='nas_sp5',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
 
-        ], style={'width': '49%',
+        ], style={'width': '40%',
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -105,7 +105,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Graph(id='nas_djia',config={'displayModeBar':False},
                       style={'border':'2px'})#,'float':'right'}),  # djia graph
 
-        ], style={'width': '49%',
+        ], style={'width': '40%',
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -121,7 +121,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Markdown('''***'''),
             dcc.Graph(id='djia_ndxt',config={'displayModeBar':False},style={'border':'2px'})#,'float':'left'})
 
-        ], style={'width': '49%',
+        ], style={'width': '40%',
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -136,7 +136,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             dcc.Graph(id='all_indices',config={'displayModeBar':False},
                       style={'border':'2px'})#,'float':'right'}),  # djia graph
 
-        ], style={'width': '49%',
+        ], style={'width': '40%',
                   'padding': '0px 0px 10px 30px', 'display': 'inline-block',
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -214,8 +214,8 @@ def update_stock_graph(value):
                              'step': 1,'margin':{'l':10,'b':10}},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': '400px',
-                   'height': '400px',
+                   'width': '300px',
+                   'height': '300px',
                    'margin': {'l':10,'r':0,'b':0,'t':0},
                    }
     }
@@ -260,8 +260,8 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years', 'gridcolor': grid_color,'range': [cutoff - first_year], 'step': 1},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': '400px',
-                   'height': '400px',
+                   'width': '300px',
+                   'height': '300px',
                    'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
                     }
     }
@@ -290,8 +290,8 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years','gridcolor': grid_color},
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': '400px',
-                   'height': '400px',
+                   'width': '300px',
+                   'height': '300px',
                    'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
                    }
     }
@@ -323,8 +323,8 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years','gridcolor': grid_color},
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': '400px',
-                   'height': '400px',
+                   'width': '300px',
+                   'height': '300px',
                    'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
 
                    }
