@@ -87,7 +87,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         html.Div([  # Upper-left div top
             html.H5('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
-            dcc.Markdown('''***'''),
+            #dcc.Markdown('''***'''),
             dcc.Graph(id='nas_sp5',config={'displayModeBar':False})#,'float':'left'})
 
         ], style={'width': '50%','float':'left',
@@ -101,7 +101,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         html.Div([  # Upper-right div
             html.H5('Nasdaq Tech Sector and DJIA Comparison', style={'color': blue_text}),
-            dcc.Markdown('''***'''),
+            #dcc.Markdown('''***'''),
             dcc.Graph(id='nas_djia',config={'displayModeBar':False})
                 #,'float':'right'}),  # djia graph
 
