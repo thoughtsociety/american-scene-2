@@ -214,7 +214,7 @@ def update_stock_graph(value):
                              'step': 1,'margin':{'l':10,'b':10}},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': 400,
+                   'width': 460,
                    'height': 400,
                    'margin': {'l':10,'r':0,'b':0,'t':0},
                    }
@@ -260,7 +260,7 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years', 'gridcolor': grid_color,'range': [cutoff - first_year], 'step': 1},
                    'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': 400,
+                   'width': 460,
                    'height': 400,
                    'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
                     }
@@ -290,7 +290,7 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years','gridcolor': grid_color},
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': 400,
+                   'width': 460,
                    'height': 400,
                    'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
                    }
@@ -323,7 +323,7 @@ def update_stock_graph(value):
                    'xaxis': {'title': 'Years','gridcolor': grid_color},
                    'yaxis': {'gridcolor': grid_color},
                    'auto_size': False,
-                   'width': 400,
+                   'width': 460,
                    'height': 400,
                    'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
 
