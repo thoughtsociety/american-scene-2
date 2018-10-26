@@ -87,10 +87,11 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         html.Div([  # Upper-left div top
             html.H5('Nasdaq and S&P 500 Comparison', style={'color': blue_text}),
-            #dcc.Markdown('''***'''),
+            dcc.Markdown('''***'''),
             dcc.Graph(id='nas_sp5',config={'displayModeBar':False})#,'float':'left'})
 
         ], style={'width': '50%','float':'left',
+                  'margin_top':'5px',
                   'padding': '0px 0px 0px 0px', 'display': 'block',
                   'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
@@ -101,11 +102,12 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         html.Div([  # Upper-right div
             html.H5('Nasdaq Tech Sector and DJIA Comparison', style={'color': blue_text}),
-            #dcc.Markdown('''***'''),
+            dcc.Markdown('''***'''),
             dcc.Graph(id='nas_djia',config={'displayModeBar':False})
                 #,'float':'right'}),  # djia graph
 
         ], style={'width': '50%','float':'right',
+                  'margin_top':'5px',
                   'padding': '0px 0px 0px 0px', 'display': 'block',# top,rt,bot,lft}
                   'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
