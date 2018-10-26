@@ -294,7 +294,8 @@ def update_stock_graph(value):
                    'font': {'color': grid_color},
                    'xaxis': {'title': 'Years','gridcolor': grid_color,'linecolor':'white'},
                    'yaxis': {'title': 'Closing Price','gridcolor': grid_color,'linecolor':'white'},
-                   'auto_size': True
+                   'auto_size': True,
+                   'margin': {'t': 0}
                    # 'width': '300px',
                    # 'height': '300px',
                    # 'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
@@ -327,7 +328,8 @@ def update_stock_graph(value):
                    'font': {'color': grid_color},
                    'xaxis': {'title': 'Years','gridcolor': grid_color,'linecolor':'white'},
                    'yaxis': {'title': 'Closing Price','gridcolor': grid_color,'linecolor':'white'},
-                   'auto_size': True
+                   'auto_size': True,
+                   'margin': {'t': 0}
                    # 'width': '300px',
                    # 'height': '300px',
                    # 'margin': {'l': 10, 'r': 0, 'b': 0, 't': 0},
