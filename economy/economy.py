@@ -92,7 +92,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '48%','float':'left',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
-                  'box-sizing': 'border-box', 'border-width': '1px',
+                  #'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
@@ -107,7 +107,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '48%','float':'right',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',# top,rt,bot,lft}
-                  'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
+                  #'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)'}
 
@@ -123,7 +123,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '48%','float':'left',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
-                  'box-sizing': 'border-box', 'border-width': '1px',
+                  #'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
@@ -138,7 +138,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '48%','float':'right',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
-                  'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
+                  #'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)' }
         ),
