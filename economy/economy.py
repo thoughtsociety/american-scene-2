@@ -145,7 +145,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)' }
         ),
-     ], style={'width':'99%', 'margin-top': '0px', 'margin-bottom': '10px','display': 'inline-block'}
+     ], style={'width':'99%', 'margin-top': '0px', 'margin-bottom': '0px','display': 'inline-block'}
 ),
 
 
@@ -158,7 +158,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
             value=2018,
             step=2
 
-            ), style={'color': 'red', 'margin-top': '0px', 'width': '95.33%',
+            ), style={'color': 'red', 'width': '95.33%',
                       'padding': '10px 38px 10px 30px',
                       'paper_bgcolor': 'rgba(0,0,0,0)',
                       'plot_bgcolor':'rgba(0,0,0,0)',
