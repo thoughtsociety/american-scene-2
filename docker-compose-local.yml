@@ -15,6 +15,20 @@ services:
       - ./data:/tmp/data:ro
     command: gunicorn -w 1 -b :8000 economy:server # was 8000
 
+  economy1:
+    container_name: economy1
+    hostname: economy1
+    restart: always
+    build: economy1
+    networks:
+      tsworker-net:
+    expose:
+    - "8001"
+    volumes:
+    - ./data:/tmp/data:ro
+    command: gunicorn -w 1 -b :8001 economy1:server # was 8000
+
+
   elections:
     container_name: elections
     hostname: elections
@@ -29,6 +43,20 @@ services:
      # - ./assets:/tmp/assets:ro
     command: gunicorn -w 1 -b :8500 elections:server # was 8000
 
+  elections1:
+      container_name: elections1
+      hostname: elections1
+      restart: always
+      build: elections1
+      networks:
+        tsworker-net:
+      expose:
+        - "8501"
+      volumes:
+        - ./data:/tmp/data:ro
+       # - ./assets:/tmp/assets:ro
+      command: gunicorn -w 1 -b :8501 elections1:server # was 8000
+
   social:
     container_name: social
     hostname: social
@@ -41,6 +69,19 @@ services:
     volumes:
       - ./data:/tmp/data:ro
     command: gunicorn -w 1 -b :9000 social:server # was 8000
+
+  social1:
+    container_name: social1
+    hostname: social1
+    restart: always
+    build: social1
+    networks:
+      tsworker-net:
+    expose:
+    - "9001"
+    volumes:
+      - ./data:/tmp/data:ro
+    command: gunicorn -w 1 -b :9001 social1:server # was 8000
 
   nginx:
     image: nginx:1.15
@@ -59,6 +100,9 @@ services:
       - economy
       - elections
       - social
+      - economy1
+      - elections1
+      - social1
 
 networks:
   tsworker-net:

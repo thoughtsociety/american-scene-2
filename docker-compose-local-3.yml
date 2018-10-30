@@ -1,18 +1,19 @@
 version: '2.1'
 
 services:
+
   economy:
     container_name: economy
     hostname: economy
     restart: always
     build: economy
     networks:
-      tsworker-net:docker-compose-3.yml
+      tsworker-net:
     expose:
       - "8000"
     volumes:
       - ./data:/tmp/data:ro
-    command: gunicorn -w 1 -b :8000 economy:server
+    command: gunicorn -w 1 -b :8000 economy:server # was 8000
 
   elections:
     container_name: elections
@@ -25,10 +26,8 @@ services:
       - "8500"
     volumes:
       - ./data:/tmp/data:ro
-      - ./assets:/tmp/assets:ro
-    environment:
-      - FLASK_ENV=development
-    command: gunicorn --log-level debug -w 1 -b :8500 elections:server
+     # - ./assets:/tmp/assets:ro
+    command: gunicorn -w 1 -b :8500 elections:server # was 8000
 
   social:
     container_name: social
@@ -52,11 +51,8 @@ services:
       tsworker-net:
     ports:
       - 80:80
-      - 443:443
     volumes:
       - ./nginx/nginx.http.conf:/etc/nginx/conf.d/default.conf:ro
-      - /etc/letsencrypt/etc:/etc/letsencrypt
-      - /etc/letsencrypt/www:/var/www/letsencrypt
     environment:
       - TZ=UTC
     depends_on:

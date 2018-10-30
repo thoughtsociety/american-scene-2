@@ -17,9 +17,9 @@ pd.core.common.is_list_like = pd.api.types.is_list_like
 
 server = Flask(__name__)
 
-economy = dash.Dash(name='Bootstrap_docker_app',
+economy1 = dash.Dash(name='Bootstrap_docker_app',
                  server=server,
-                url_base_pathname='/economy/',
+                url_base_pathname='/economy1/',
                 csrf_protect=False)
 
 # Colors for white bg with black text
@@ -37,9 +37,9 @@ s3_eco_mkt = "https://s3.us-east-2.amazonaws.com/tswrkdataset/economic/mkt_indic
 s3_css_mycss = "https://s3.us-east-2.amazonaws.com/tswrkdataset/css/my.css"
 
 # Get Chryddyp's CSS for Dash from Codepen
-economy.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+economy1.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 # mycss
-economy.css.append_css({"external_url": s3_css_mycss})
+economy1.css.append_css({"external_url": s3_css_mycss})
 
 
 # get four excel datafiles - 1 for DJIA and the other for Nasdaq Tech Sector
@@ -81,7 +81,7 @@ for year in year_index_strings:
     i+=1
 
 
-economy.layout=html.Div([   # top,rt,bot,lft
+economy1.layout=html.Div([   # top,rt,bot,lft
 
     html.Div([
 
@@ -179,7 +179,7 @@ economy.layout=html.Div([   # top,rt,bot,lft
 # reshape the array in a temporary array and run it to the end.
 
 
-@economy.callback(  # Chart Upper Left - IXIC, GSPC
+@economy1.callback(  # Chart Upper Left - IXIC, GSPC
     Output('nas_sp5', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
@@ -230,7 +230,7 @@ def update_stock_graph(value):
     }
     return fig
 
-@economy.callback(  # Stock # 1 - DJIA
+@economy1.callback(  # Stock # 1 - DJIA
     Output('nas_djia', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
@@ -278,7 +278,7 @@ def update_stock_graph(value):
 
 
 
-@economy.callback(  # Stock #2 NDXT
+@economy1.callback(  # Stock #2 NDXT
     Output('djia_ndxt', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
@@ -307,7 +307,7 @@ def update_stock_graph(value):
     }
     return fig
 
-@economy.callback(  # Stock #2 NDXT
+@economy1.callback(  # Stock #2 NDXT
     Output('all_indices', 'figure'),
     [Input('years-range-slider', 'value')])
 def update_stock_graph(value):
@@ -343,5 +343,5 @@ def update_stock_graph(value):
     return fig
 
 if __name__ == '__main__':
-    #economy.run_server(ssl_context='adhoc')
-    economy.run_server(debug=True)
+    #economy1.run_server(ssl_context='adhoc')
+    economy1.run_server(debug=True)
