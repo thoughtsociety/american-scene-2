@@ -27,7 +27,7 @@ economy1 = dash.Dash(name='Bootstrap_docker_app',
 text_color = 'rgb(36,36,36)'
 bg_color = 'rgb(255,255,255)'
 #grid_color = '#666666'
-grid_color = '#a6a6a6'
+grid_color = 'ffffff'
 black_text = '#000000'
 block_quote_text = 'rgb(64,64,64)'
 blue_text = 'rgb(51, 153, 255)'
@@ -93,7 +93,7 @@ economy1.layout=html.Div([   # top,rt,bot,lft
         ], style={'width': '50%','float':'left',
                   'margin_top':'5px',
                   #'padding': '0px 0px 0px 0px', 'display': 'block',
-                  'box-sizing': 'border-box', 'border-width': '2px','border-color': 'grey',
+                  'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)'},
         ),
@@ -126,7 +126,7 @@ economy1.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '50%','float':'left',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
-                  'border-width': '2px','border-color': 'grey',
+                  #'box-sizing': 'border-box', 'border-width': '1px',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)'}
         ),
@@ -141,7 +141,7 @@ economy1.layout=html.Div([   # top,rt,bot,lft
 
         ], style={'width': '50%','float':'right',
                   'padding': '0px 0px 10px 0px', 'display': 'inline-block',
-                  'border-color': 'grey','border-width': '2px',
+                  #'box-sizing': 'border-box', 'border-width': '2px', 'border-color': 'grey',
                   'paper_bgcolor':'rgba(0,0,0,0)',
                   'plot_bgcolor':'rgba(0,0,0,0)' }
         ),
@@ -220,8 +220,8 @@ def update_stock_graph(value):
                    'plot_bgcolor': 'rgba(0,0,0,0)',
                    'font': {'color': grid_color},
                    'xaxis': {'title': 'Years', 'gridcolor': grid_color, 'range': [cutoff - first_year],
-                             'step': 1,'margin':{'l':10,'b':10},'linecolor':grid_color},
-                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color,'linecolor':grid_color},
+                             'step': 1,'margin':{'l':10,'b':10},'linecolor':'white'},
+                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color,'linecolor':'white'},
                    'auto_size': True,
                    #'width': '300px',
                    #'height': '300px',
@@ -266,8 +266,8 @@ def update_stock_graph(value):
         'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
                    'plot_bgcolor': 'rgba(0,0,0,0)',
                    'font': {'color': grid_color},
-                   'xaxis': {'title': 'Years', 'gridcolor': grid_color,'linecolor':grid_color,'range': [cutoff - first_year], 'step': 1},
-                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color,'linecolor':grid_color},
+                   'xaxis': {'title': 'Years', 'gridcolor': grid_color,'linecolor':'white','range': [cutoff - first_year], 'step': 1},
+                   'yaxis': {'title': 'Closing Price', 'gridcolor': grid_color,'linecolor':'white'},
                    'auto_size': True,
                    # 'width': '300px',
                    # 'height': '300px',
@@ -296,8 +296,8 @@ def update_stock_graph(value):
         'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
                    'plot_bgcolor': 'rgba(0,0,0,0)',
                    'font': {'color': grid_color},
-                   'xaxis': {'title': 'Years','gridcolor': grid_color,'linecolor':grid_color},
-                   'yaxis': {'title': 'Closing Price','gridcolor': grid_color,'linecolor':grid_color},
+                   'xaxis': {'title': 'Years','gridcolor': grid_color,'linecolor':'white'},
+                   'yaxis': {'title': 'Closing Price','gridcolor': grid_color,'linecolor':'white'},
                    'auto_size': True,
                    'margin': {'t': 0}
                    # 'width': '300px',
@@ -330,8 +330,8 @@ def update_stock_graph(value):
         'layout': {'paper_bgcolor':'rgba(0,0,0,0)',
                    'plot_bgcolor': 'rgba(0,0,0,0)',
                    'font': {'color': grid_color},
-                   'xaxis': {'title': 'Years','gridcolor': grid_color,'linecolor':grid_color},
-                   'yaxis': {'title': 'Closing Price','gridcolor': grid_color,'linecolor':grid_color},
+                   'xaxis': {'title': 'Years','gridcolor': grid_color,'linecolor':'white'},
+                   'yaxis': {'title': 'Closing Price','gridcolor': grid_color,'linecolor':'white'},
                    'auto_size': True,
                    'margin': {'t': 0}
                    # 'width': '300px',

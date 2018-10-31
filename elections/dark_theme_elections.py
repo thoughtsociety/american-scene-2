@@ -9,11 +9,11 @@ import dash
 
 from dash.dependencies import Input, Output
 
-hard_gray = '#ffffff'
+white_text = '#ffffff'
 text_color = 'rgb(36,36,36)'
 bg_color = 'rgb(255,255,255)'
 grid_color = '#a6a6a6'
-hard_gray = '#000000'
+black_text = '#000000'
 block_quote_text = 'rgb(64,64,64)'
 blue_text = 'rgb(51, 153, 255)'
 hard_gray = 'rgb(77,77,77)'
@@ -49,7 +49,7 @@ tab_style = {
     'padding': '6px',
     'fontWeight': 'bold',
 	'font-size':'24px',
-	'color': hard_gray,
+	'color': white_text,
 	'backgroundColor':'rgba(0,0,0,0)'
 }
 
@@ -58,7 +58,7 @@ tab_selected_style = {
     'borderBottom': '2px solid #d6d6d6',
     'backgroundColor': '#119DFF',
 	'font-size':'24px',
-	'color': hard_gray,
+	'color': white_text,
     'padding': '6px'
 }
 
@@ -100,10 +100,10 @@ def render_content(tab):
 		        ],
 				'layout': go.Layout(
 					title='This is the Economic Slide',
-					titlefont=dict(family='Helvetica Neue', size=32, color=hard_gray),
-					legend=dict(font=dict(family='sans-serif', size=12, color=hard_gray)),
-					xaxis=dict(tickfont=dict(size=12, color=hard_gray)),
-					yaxis=dict(tickfont=dict(size=12, color=hard_gray)),
+					titlefont=dict(family='Helvetica Neue', size=32, color=white_text),
+					legend=dict(font=dict(family='sans-serif', size=12, color=white_text)),
+					xaxis=dict(tickfont=dict(size=12, color=white_text)),
+					yaxis=dict(tickfont=dict(size=12, color=white_text)),
 					paper_bgcolor='rgba(0,0,0,0)',
 					plot_bgcolor='rgba(0,0,0,0)'
 				)
@@ -127,10 +127,10 @@ def render_content(tab):
 				],
 				'layout': go.Layout(
 					title='This is the Elections Slide',
-					titlefont=dict(family='Helvetica Neue', size=32, color=hard_gray),
-					legend=dict(font=dict(family='sans-serif', size=12, color=hard_gray)),
-					xaxis=dict(tickfont=dict(size=12, color=hard_gray)),
-					yaxis=dict(tickfont=dict(size=12, color=hard_gray)),
+					titlefont=dict(family='Helvetica Neue', size=32, color=white_text),
+					legend=dict(font=dict(family='sans-serif', size=12, color=white_text)),
+					xaxis=dict(tickfont=dict(size=12, color=white_text)),
+					yaxis=dict(tickfont=dict(size=12, color=white_text)),
 					paper_bgcolor='rgba(0,0,0,0)',
 					plot_bgcolor='rgba(0,0,0,0)'
 				)
@@ -154,10 +154,10 @@ def render_content(tab):
 				],
 				'layout': go.Layout(
 					title='This is the Social Slide',
-					titlefont=dict(family='Helvetica Neue', size=32, color=hard_gray),
-					legend=dict(font=dict(family='sans-serif',size=12,color=hard_gray)),
-					xaxis=dict(tickfont=dict(size=12,color=hard_gray)),
-					yaxis=dict(tickfont=dict(size=12,color=hard_gray)),
+					titlefont=dict(family='Helvetica Neue', size=32, color=white_text),
+					legend=dict(font=dict(family='sans-serif',size=12,color=white_text)),
+					xaxis=dict(tickfont=dict(size=12,color=white_text)),
+					yaxis=dict(tickfont=dict(size=12,color=white_text)),
 					paper_bgcolor='rgba(0,0,0,0)',
 					plot_bgcolor='rgba(0,0,0,0)'
 				)
@@ -184,8 +184,8 @@ def render_content(tab):
 	# 					title = 'This is the Elections Slide',
 	# 					titlefont=dict(family='Helvetica Neue',
 	# 					               size=15,
-	# 					               color= hard_gray),
-	# 					legend=dict(color=hard_gray),
+	# 					               color= white_text),
+	# 					legend=dict(color=white_text),
 	# 					paper_bgcolor = 'rgba(0,0,0,0)',
 	# 					plot_bgcolor = 'rgba(0,0,0,0)'
 	# 				    )
@@ -208,8 +208,8 @@ def render_content(tab):
 	# 					title = 'This is the Social Slide',
 	# 					titlefont=dict(family='Helvetica Neue',
 	# 					               size=15,
-	# 					               color= hard_gray),
-	# 					legend=dict(color=hard_gray),
+	# 					               color= white_text),
+	# 					legend=dict(color=white_text),
 	# 					paper_bgcolor = 'rgba(0,0,0,0)',
 	# 					plot_bgcolor = 'rgba(0,0,0,0)'
 	# 				    )
