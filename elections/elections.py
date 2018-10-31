@@ -9,11 +9,11 @@ import dash
 
 from dash.dependencies import Input, Output
 
-hard_gray = '#ffffff'
+# hard_gray = '#ffffff'
 text_color = 'rgb(36,36,36)'
 bg_color = 'rgb(255,255,255)'
 grid_color = '#a6a6a6'
-hard_gray = '#000000'
+#hard_gray = '#000000'
 block_quote_text = 'rgb(64,64,64)'
 blue_text = 'rgb(51, 153, 255)'
 hard_gray = 'rgb(77,77,77)'
@@ -72,7 +72,7 @@ elections.layout = html.Div([
     ], style=tabs_styles),
 	# html.H1("This should be big and black"),
     html.Div(id='tabs-content-inline')
-]
+], style={'border-width': '2px', 'border-color': hard_gray}
 )
 
 
